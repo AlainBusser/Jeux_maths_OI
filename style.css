@@ -1,0 +1,12 @@
+h1 {
+    color: brown;
+    text-align: center;
+    font-variant: small-caps;
+}
+h2 {
+    color: brown;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+  }

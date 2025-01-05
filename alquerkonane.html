@@ -240,7 +240,133 @@ mouvement.</p>
 
 <h3>Manger un pion</h3>
 
+<p>Un pion noir peut manger un pion blanc en sautant par-dessus lui comme 
+    au jeu de solitaire, à condition que la case d'arrivée soit vide. Mais 
+    ce saut ne peut se faire que s'il y a un pion adverse entre la position 
+    actuelle du pion et sa position d'arrivée&nbsp;:
+</p>
 
+<table>
+    <tr>
+        <td></td><td>♟</td><td></td><td>♟</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>♟</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>♙</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td class="vert"></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Le pion ne peut pas avancer (il est bloqué par deux pions noirs) 
+    mais il peut manger le pion blanc en sautant par-dessus&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td></td><td>♟</td><td></td><td>♟</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>♟</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>On peut prendre vers le haut, la gauche, la droite ou le bas mais 
+    on ne prend qu'une seule fois.
+</p>
+
+<h3>Comment gagner&nbsp;?</h3>
+
+<p>Lorsque c'est à moi de jouer mais que je ne peux plus bouger 
+    aucun pion, j'ai perdu. Par exemple les blancs ont perdu 
+    si tous leurs pions sont bloqués&nbsp;: 
+</p>
+
+<table>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>♟</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>♙</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>♙</td><td></td><td>♙</td>
+    </tr>
+</table>
+
+<p>mais aussi s'ils n'ont plus aucun pion&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>♟</td><td></td><td>♟</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>♟</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Remarque&nbsp;: il n'y a pas de partie nulle à alquerkonane. Par exemple ici&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td>♟</td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>♙</td><td></td><td></td>
+    </tr>
+</table>
+
+<p>la situation n'est pas ambigüe&nbsp;: si c'est aux noirs de jouer, 
+    ils ont perdu et si c'est aux blancs de jouer, les noirs ont gagné.
+</p>
 
 
 

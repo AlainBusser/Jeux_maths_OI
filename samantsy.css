@@ -11,3 +11,6 @@ table td {
     text-align: center;
     font-size: 24px;
 }
+table td.vert {
+    background: lightgreen;
+}

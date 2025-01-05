@@ -22,3 +22,6 @@ table tr:nth-child(odd) td:nth-child(odd) {
 table tr:nth-child(even) td:nth-child(even) {
     background: lightyellow;
 }
+table td.vert {
+    background: lightgreen !important;
+}

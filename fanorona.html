@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>fanorona</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="fanorona.css">
+</head>
+
+
+
+<body>
+
+<h1>Fanorona</h1>
+
+<p>Fanorona est un des jeux mathématiques les plus réputés du monde, et 
+	il est considéré comme le jeu national malgache, parce qu'on n'y 
+	jouait traditionnellement dans aucun autre pays, et qu'on ne connaît 
+	aucun jeu qui lui ressemble ailleurs dans le monde. Noter qu'un 
+	<a href="https://dke.maastrichtuniversity.nl/m.winands/documents/Fanorona.pdf">théorème</a> 
+	de 2008 dit qu'il n'existe pas de stratégie gagnante à ce jeu, ce qui 
+	finalement n'enlève rien à son intérêt.
+</p>
+
+<h2>Histoire de ce jeu</h2>
+
+<p>L'ancêtre du jeu de dames s'appelle <a href="https://fr.wikipedia.org/wiki/Alquerque">alquerque</a> 
+de doze. Il provient d'un jeu arabe appelé <em>qirq</em> qui se joue sur 
+ce plateau&nbsp;:</p>
+
+
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	version="1.0"
+	width="460" height="460" viewBox="20 20 460 460">
+	<defs>
+		<linearGradient id="BlackLinearGradient">
+			<stop style="stop-color:#cccccc;stop-opacity:1" offset="0" />
+			<stop style="stop-color:#000000;stop-opacity:1" offset="1" />
+		</linearGradient>
+		<linearGradient id="WhiteLinearGradient">
+			<stop style="stop-color:#ffffff;stop-opacity:1" offset="0" />
+			<stop style="stop-color:#e6e6e6;stop-opacity:1" offset="0.75" />
+			<stop style="stop-color:#cccccc;stop-opacity:1" offset="1" />
+		</linearGradient>
+		<radialGradient id="BlackRadialGradient" xlink:href="#BlackLinearGradient"
+			cx="0" cy="0" r="24" fx="-12" fy="-12" gradientUnits="userSpaceOnUse" />
+		<radialGradient id="WhiteRadialGradient" xlink:href="#WhiteLinearGradient"
+			cx="0" cy="0" r="24" fx="-12" fy="-12" gradientUnits="userSpaceOnUse" />
+		<filter id="StoneDropShadow" x="-0.25" y="-0.25" width="1.5" height="1.5" color-interpolation-filters="sRGB">
+			<feGaussianBlur result="blur" stdDeviation="2" in="SourceAlpha" />
+			<feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0 " type="matrix" result="bluralpha" />
+			<feOffset result="offsetBlur" dy="2" dx="2" in="bluralpha" />
+			<feMerge><feMergeNode in="offsetBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
+		</filter>
+		<circle id="Whitestone" cx="0" cy="0" r="24"
+			style="fill:url(#WhiteRadialGradient);stroke:none;filter:url(#StoneDropShadow)" />
+		<circle id="Blackstone" cx="0" cy="0" r="24"
+			style="fill:url(#BlackRadialGradient);stroke:none;filter:url(#StoneDropShadow)" />
+	</defs>
+	<rect width="458" height="458" x="21" y="21" style="fill:lightyellow;stroke:none" />
+	<g style="fill:none;stroke:#c06030;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter">
+		<path d="M 450,50 50,450 M 50,50 450,450 M 250,50 50,250 250,450 450,250 z" />
+		<path id="GridHorz"
+			d="M 50,50 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400" />
+		<use xlink:href="#GridHorz" transform="matrix(0,-1,1,0,0,500)" />
+	
+	</g>
+	<use xlink:href="#Blackstone" transform="translate(50,50)" />
+	<use xlink:href="#Blackstone" transform="translate(150,50)" />
+	<use xlink:href="#Blackstone" transform="translate(250,50)" />
+	<use xlink:href="#Blackstone" transform="translate(350,50)" />
+	<use xlink:href="#Blackstone" transform="translate(450,50)" />
+	<use xlink:href="#Blackstone" transform="translate(50,150)" />
+	<use xlink:href="#Blackstone" transform="translate(150,150)" />
+	<use xlink:href="#Blackstone" transform="translate(250,150)" />
+	<use xlink:href="#Blackstone" transform="translate(350,150)" />
+	<use xlink:href="#Blackstone" transform="translate(450,150)" />
+	<use xlink:href="#Blackstone" transform="translate(50,250)" />
+	<use xlink:href="#Blackstone" transform="translate(150,250)" />
+	<use xlink:href="#Whitestone" transform="translate(350,250)" />
+	<use xlink:href="#Whitestone" transform="translate(450,250)" />
+	<use xlink:href="#Whitestone" transform="translate(50,350)" />
+	<use xlink:href="#Whitestone" transform="translate(150,350)" />
+	<use xlink:href="#Whitestone" transform="translate(250,350)" />
+	<use xlink:href="#Whitestone" transform="translate(350,350)" />
+	<use xlink:href="#Whitestone" transform="translate(450,350)" />
+	<use xlink:href="#Whitestone" transform="translate(50,450)" />
+	<use xlink:href="#Whitestone" transform="translate(150,450)" />
+	<use xlink:href="#Whitestone" transform="translate(250,450)" />
+	<use xlink:href="#Whitestone" transform="translate(350,450)" />
+	<use xlink:href="#Whitestone" transform="translate(450,450)" />
+</svg>
+
+<p>Répandu en moyen-orient (et même au Népal, pour un autre jeu), ce jeu 
+	a été pratiqué sur des plateaux parfois très élaborés (incision d'ivoire 
+	dans des bois précieux, ajouts de rosaces ou couleur spéciale pour le 
+	carré central) et l'intensité des échanges commerciaux a amené un 
+	visiteur (probablement iranien) à offrir ou échanger un de ces plateaux 
+	de jeu avec ses 12 pions de chaque couleur à un malgache (probablement 
+	de la noblesse Merina). Mais apparemment l'oriental a oublié de donner 
+	au malgache la règle du jeu, et le malgache a inventé un jeu unique au 
+	monde qu'on joue avec ce matériel&nbsp;: le <em>fanorona-dimy</em> (dimy 
+	veut dire cinq, c'est parce qu'il y a 5 colonnes), dont voici la 
+	position initiale&nbsp;:
+</p>
+
+
+
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	version="1.0"
+	width="460" height="460" viewBox="20 20 460 460">
+	<rect width="458" height="458" x="21" y="21" style="fill:lightyellow;stroke:none" />
+	<g style="fill:none;stroke:#c06030;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter">
+		<path d="M 450,50 50,450 M 50,50 450,450 M 250,50 50,250 250,450 450,250 z" />
+		<path id="GridHorz"
+			d="M 50,50 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400" />
+		<use xlink:href="#GridHorz" transform="matrix(0,-1,1,0,0,500)" />
+	
+	</g>
+	<use xlink:href="#Blackstone" transform="translate(50,50)" />
+	<use xlink:href="#Blackstone" transform="translate(150,50)" />
+	<use xlink:href="#Blackstone" transform="translate(250,50)" />
+	<use xlink:href="#Blackstone" transform="translate(350,50)" />
+	<use xlink:href="#Blackstone" transform="translate(450,50)" />
+	<use xlink:href="#Blackstone" transform="translate(50,150)" />
+	<use xlink:href="#Blackstone" transform="translate(150,150)" />
+	<use xlink:href="#Blackstone" transform="translate(250,150)" />
+	<use xlink:href="#Blackstone" transform="translate(350,150)" />
+	<use xlink:href="#Blackstone" transform="translate(450,150)" />
+	<use xlink:href="#Blackstone" transform="translate(50,250)" />
+	<use xlink:href="#Whitestone" transform="translate(150,250)" />
+	<use xlink:href="#Blackstone" transform="translate(350,250)" />
+	<use xlink:href="#Whitestone" transform="translate(450,250)" />
+	<use xlink:href="#Whitestone" transform="translate(50,350)" />
+	<use xlink:href="#Whitestone" transform="translate(150,350)" />
+	<use xlink:href="#Whitestone" transform="translate(250,350)" />
+	<use xlink:href="#Whitestone" transform="translate(350,350)" />
+	<use xlink:href="#Whitestone" transform="translate(450,350)" />
+	<use xlink:href="#Whitestone" transform="translate(50,450)" />
+	<use xlink:href="#Whitestone" transform="translate(150,450)" />
+	<use xlink:href="#Whitestone" transform="translate(250,450)" />
+	<use xlink:href="#Whitestone" transform="translate(350,450)" />
+	<use xlink:href="#Whitestone" transform="translate(450,450)" />
+</svg>
+
+<p>Un plateau de fanorona (mais est-ce à 5 colonnes&nbsp;?) a été trouvé 
+	dans le <em>hova</em> (enceinte sacrée) 
+	d'<a href="https://www.openstreetmap.org/search?query=alasora#map=14/-18.95510/47.56650">Alasora</a> 
+	qui était utilisée au XVI<sup>e</sup> siècle. Les Merina (au moins 
+	les nobles) jouaient donc au fanorona vers l'an 1500.
+</p>
+
+<p>Une légende dit qu'un prince a laissé son petit frère devenir roi 
+	parce qu'il s'intéressait surtout au fanorona-dimy. Constatant qu'il 
+	y avait trop de parties nulles dans ce jeu, il a décidé de coller 
+	bout à bout deux plateaux de fanorona-dimy, créant ainsi le 
+	fanorona-sivy (sivy veut dire 9, or il y a 9 colonnes)&nbsp;:
+</p>
+
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	version="1.0"
+	width="860" height="460" viewBox="20 20 860 460">
+	<rect width="858" height="458" x="21" y="21" style="fill:lightyellow;stroke:none" />
+	<g style="fill:none;stroke:#c06030;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter">
+		<path d="M 50,450 450,50 850, 450 M 50,50 450,450 850,50 M 50,250 250,50 650,450 850,250 650,50 250,450, 50,250 z" />
+		<path id="GridHorz"
+			d="M 50,50 h 800 m -800,100 h 800 m -800,100 h 800 m -800,100 h 800 m -800,100 h 800" />
+		<path id="GridVert"
+			d="M 50,50 v 400 m 100,-400 v 400m 100,-400 v 400m 100,-400 v 400m 100,-400 v 400m 100,-400 v 400m 100,-400 v 400m 100,-400 v 400m 100,-400 v 400" />
+		
+	</g>
+	<use xlink:href="#Blackstone" transform="translate(50,50)" />
+	<use xlink:href="#Blackstone" transform="translate(150,50)" />
+	<use xlink:href="#Blackstone" transform="translate(250,50)" />
+	<use xlink:href="#Blackstone" transform="translate(350,50)" />
+	<use xlink:href="#Blackstone" transform="translate(450,50)" />
+	<use xlink:href="#Blackstone" transform="translate(550,50)" />
+	<use xlink:href="#Blackstone" transform="translate(650,50)" />
+	<use xlink:href="#Blackstone" transform="translate(750,50)" />
+	<use xlink:href="#Blackstone" transform="translate(850,50)" />
+	<use xlink:href="#Blackstone" transform="translate(50,150)" />
+	<use xlink:href="#Blackstone" transform="translate(150,150)" />
+	<use xlink:href="#Blackstone" transform="translate(250,150)" />
+	<use xlink:href="#Blackstone" transform="translate(350,150)" />
+	<use xlink:href="#Blackstone" transform="translate(450,150)" />
+	<use xlink:href="#Blackstone" transform="translate(550,150)" />
+	<use xlink:href="#Blackstone" transform="translate(650,150)" />
+	<use xlink:href="#Blackstone" transform="translate(750,150)" />
+	<use xlink:href="#Blackstone" transform="translate(850,150)" />
+	<use xlink:href="#Blackstone" transform="translate(50,250)" />
+	<use xlink:href="#Whitestone" transform="translate(150,250)" />
+	<use xlink:href="#Blackstone" transform="translate(250,250)" />
+	<use xlink:href="#Whitestone" transform="translate(350,250)" />
+	<use xlink:href="#Blackstone" transform="translate(550,250)" />
+	<use xlink:href="#Whitestone" transform="translate(650,250)" />
+	<use xlink:href="#Blackstone" transform="translate(750,250)" />
+	<use xlink:href="#Whitestone" transform="translate(850,250)" />
+	<use xlink:href="#Whitestone" transform="translate(50,350)" />
+	<use xlink:href="#Whitestone" transform="translate(150,350)" />
+	<use xlink:href="#Whitestone" transform="translate(250,350)" />
+	<use xlink:href="#Whitestone" transform="translate(350,350)" />
+	<use xlink:href="#Whitestone" transform="translate(450,350)" />
+	<use xlink:href="#Whitestone" transform="translate(550,350)" />
+	<use xlink:href="#Whitestone" transform="translate(650,350)" />
+	<use xlink:href="#Whitestone" transform="translate(750,350)" />
+	<use xlink:href="#Whitestone" transform="translate(850,350)" />
+	<use xlink:href="#Whitestone" transform="translate(50,450)" />
+	<use xlink:href="#Whitestone" transform="translate(150,450)" />
+	<use xlink:href="#Whitestone" transform="translate(250,450)" />
+	<use xlink:href="#Whitestone" transform="translate(350,450)" />
+	<use xlink:href="#Whitestone" transform="translate(450,450)" />
+	<use xlink:href="#Whitestone" transform="translate(550,450)" />
+	<use xlink:href="#Whitestone" transform="translate(650,450)" />
+	<use xlink:href="#Whitestone" transform="translate(750,450)" />
+	<use xlink:href="#Whitestone" transform="translate(850,450)" />
+</svg>
+
+<p>On constate qu'il faut maintenant 22 pions par joueur, souvent 
+	des pierres (<i>vato</i> en malgache) de deux couleurs, mais 
+parfois aussi des pions comme au jeu d'échecs, taillés dans deux 
+bois différents.</p>
+
+<p>Lorsque le roi <a href="https://fr.wikipedia.org/wiki/Andriambelomasina">Andriambelomasina</a> 
+a décrété que son petit-fils 
+<a href="https://fr.wikipedia.org/wiki/Andrianampoinimerina">Ramboasalama</a> 
+devait à terme lui succéder, il lui a offert une éducation digne d'un 
+futur grand roi. Pour lui assurer des succès dans les inévitables guerres 
+qui allaient venir, et faire de lui un grand stratège, une solide formation 
+au fanorona était incluse dans cette éducation hors sol. De fait, le prince 
+a fini par devenir effectivement un grand roi, en même temps qu'un champion de 
+fanorona. Son palais se trouve à 
+<a href="https://www.openstreetmap.org/search?query=ambohimanga#map=19/-18.760441/47.562314">Ambohimanga</a> 
+et dans la chambre royale, on peut encore voir aujourd'hui un plateau 
+de fanorona, les traits étant gravés sur le bois. Lorsque son fils 
+<a href="https://fr.wikipedia.org/wiki/Radama_Ier">Radama I<sup>er</sup></a> lui 
+a succédé, les 44 invités de la cérémonie d'investiture étaient 
+disposés comme les pions d'un jeu de fanorona.</p>
+<p>De 1889 à 1890, le docteur 
+    <a href="https://fr.wikipedia.org/wiki/Louis_Catat">Catat</a> fait un 
+    voyage à Madagascar. Lors de son second séjour à Tananarive, il apprend 
+	le fanorona avec une jeune merina. Mais il écrit non pas 22 pions par 
+	joueur, mais 32. Coquille ou Catat aurait-il observé un <em>fanorona-telo ambin’ny folo</em> 
+	sur une grille à 13 colonnes, inconnu à ce jour&nbsp;? Toujours est-il que 
+	lorsqu'on parle de fanorona, c'est la fanorona-sivy à 9 colonnes 
+	qu'on évoque.
+</p>
+<p>Des plateaux de fanorona (<i>lakapanorona</i>) en pierre, en bois ou 
+en béton existent dans de nombreux quartiers des plateaux. Parfois 
+ils ont une forme carrée&nbsp;:</p>
+
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	version="1.0"
+	width="460" height="460" viewBox="20 20 460 460">
+	<rect width="458" height="458" x="21" y="21" style="fill:lightyellow;stroke:none" />
+	<g style="fill:none;stroke:#c06030;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter">
+		<path d="M 50,450 250,50 450, 450 M 50,50 250,450 450,50 M 50,250 150,50 350,450 450,250 350,50 150,450, 50,250 z" />
+		<path id="GridHorz"
+			d="M 50,50 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400" />
+		<path id="GridVert"
+			d="M 50,50 v 400 m 50,-400 v 400m 50,-400 v 400m 50,-400 v 400m 50,-400 v 400m 50,-400 v 400m 50,-400 v 400m 50,-400 v 400m 50,-400 v 400" />
+		
+	</g>
+	<use xlink:href="#Blackstone" transform="translate(50,50)" />
+	<use xlink:href="#Blackstone" transform="translate(100,50)" />
+	<use xlink:href="#Blackstone" transform="translate(150,50)" />
+	<use xlink:href="#Blackstone" transform="translate(200,50)" />
+	<use xlink:href="#Blackstone" transform="translate(250,50)" />
+	<use xlink:href="#Blackstone" transform="translate(300,50)" />
+	<use xlink:href="#Blackstone" transform="translate(350,50)" />
+	<use xlink:href="#Blackstone" transform="translate(400,50)" />
+	<use xlink:href="#Blackstone" transform="translate(450,50)" />
+	<use xlink:href="#Blackstone" transform="translate(50,150)" />
+	<use xlink:href="#Blackstone" transform="translate(100,150)" />
+	<use xlink:href="#Blackstone" transform="translate(150,150)" />
+	<use xlink:href="#Blackstone" transform="translate(200,150)" />
+	<use xlink:href="#Blackstone" transform="translate(250,150)" />
+	<use xlink:href="#Blackstone" transform="translate(300,150)" />
+	<use xlink:href="#Blackstone" transform="translate(350,150)" />
+	<use xlink:href="#Blackstone" transform="translate(400,150)" />
+	<use xlink:href="#Blackstone" transform="translate(450,150)" />
+	<use xlink:href="#Blackstone" transform="translate(50,250)" />
+	<use xlink:href="#Whitestone" transform="translate(100,250)" />
+	<use xlink:href="#Blackstone" transform="translate(150,250)" />
+	<use xlink:href="#Whitestone" transform="translate(200,250)" />
+	<use xlink:href="#Blackstone" transform="translate(300,250)" />
+	<use xlink:href="#Whitestone" transform="translate(350,250)" />
+	<use xlink:href="#Blackstone" transform="translate(400,250)" />
+	<use xlink:href="#Whitestone" transform="translate(450,250)" />
+	<use xlink:href="#Whitestone" transform="translate(50,350)" />
+	<use xlink:href="#Whitestone" transform="translate(100,350)" />
+	<use xlink:href="#Whitestone" transform="translate(150,350)" />
+	<use xlink:href="#Whitestone" transform="translate(200,350)" />
+	<use xlink:href="#Whitestone" transform="translate(250,350)" />
+	<use xlink:href="#Whitestone" transform="translate(300,350)" />
+	<use xlink:href="#Whitestone" transform="translate(350,350)" />
+	<use xlink:href="#Whitestone" transform="translate(400,350)" />
+	<use xlink:href="#Whitestone" transform="translate(450,350)" />
+	<use xlink:href="#Whitestone" transform="translate(50,450)" />
+	<use xlink:href="#Whitestone" transform="translate(100,450)" />
+	<use xlink:href="#Whitestone" transform="translate(150,450)" />
+	<use xlink:href="#Whitestone" transform="translate(200,450)" />
+	<use xlink:href="#Whitestone" transform="translate(250,450)" />
+	<use xlink:href="#Whitestone" transform="translate(300,450)" />
+	<use xlink:href="#Whitestone" transform="translate(350,450)" />
+	<use xlink:href="#Whitestone" transform="translate(400,450)" />
+	<use xlink:href="#Whitestone" transform="translate(450,450)" />
+</svg>
+
+<p>Dans la région de Tananarive, on joue beaucoup au fanorona, y 
+	compris en plein air, et à tout âge, y compris de jeunes enfants&nbsp;! 
+	Des forains peuvent très bien dessiner par terre, à la craie, une 
+	grille de fanorona-dimy, et jouer à même le sol avec des graines 
+	de jacaranda (comment font-ils pour savoir de quelle couleur 
+	est chaque graine&nbsp;?). C'est donc sur le petit plateau du 
+	fanorona-dimy qu'on va expliquer la règle du jeu.
+</p>
+
+<h2>Règle du jeu</h2>
+
+<p>Le fanorona-dimy se joue sur un plateau couvert de traits, ainsi&nbsp;:</p>
+
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	version="1.0"
+	width="460" height="460" viewBox="20 20 460 460">
+	<rect width="458" height="458" x="21" y="21" style="fill:lightyellow;stroke:none" />
+	<g style="fill:none;stroke:#c06030;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter">
+		<path d="M 450,50 50,450 M 50,50 450,450 M 250,50 50,250 250,450 450,250 z" />
+		<path id="GridHorz"
+			d="M 50,50 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400" />
+		<use xlink:href="#GridHorz" transform="matrix(0,-1,1,0,0,500)" />
+	
+	</g>
+</svg>
+
+
+<p>Chaque joueur dispose de 12 pions, l'un a 12 pions blancs, et 
+	l'autre a douze pions noirs, initialement disposés ainsi&nbsp;:
+</p>
+
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	version="1.0"
+	width="460" height="460" viewBox="20 20 460 460">
+	<rect width="458" height="458" x="21" y="21" style="fill:lightyellow;stroke:none" />
+	<g style="fill:none;stroke:#c06030;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter">
+		<path d="M 450,50 50,450 M 50,50 450,450 M 250,50 50,250 250,450 450,250 z" />
+		<path id="GridHorz"
+			d="M 50,50 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400 m -400,100 h 400" />
+		<use xlink:href="#GridHorz" transform="matrix(0,-1,1,0,0,500)" />
+	
+	</g>
+	<use xlink:href="#Blackstone" transform="translate(50,50)" />
+	<use xlink:href="#Blackstone" transform="translate(150,50)" />
+	<use xlink:href="#Blackstone" transform="translate(250,50)" />
+	<use xlink:href="#Blackstone" transform="translate(350,50)" />
+	<use xlink:href="#Blackstone" transform="translate(450,50)" />
+	<use xlink:href="#Blackstone" transform="translate(50,150)" />
+	<use xlink:href="#Blackstone" transform="translate(150,150)" />
+	<use xlink:href="#Blackstone" transform="translate(250,150)" />
+	<use xlink:href="#Blackstone" transform="translate(350,150)" />
+	<use xlink:href="#Blackstone" transform="translate(450,150)" />
+	<use xlink:href="#Blackstone" transform="translate(50,250)" />
+	<use xlink:href="#Whitestone" transform="translate(150,250)" />
+	<use xlink:href="#Blackstone" transform="translate(350,250)" />
+	<use xlink:href="#Whitestone" transform="translate(450,250)" />
+	<use xlink:href="#Whitestone" transform="translate(50,350)" />
+	<use xlink:href="#Whitestone" transform="translate(150,350)" />
+	<use xlink:href="#Whitestone" transform="translate(250,350)" />
+	<use xlink:href="#Whitestone" transform="translate(350,350)" />
+	<use xlink:href="#Whitestone" transform="translate(450,350)" />
+	<use xlink:href="#Whitestone" transform="translate(50,450)" />
+	<use xlink:href="#Whitestone" transform="translate(150,450)" />
+	<use xlink:href="#Whitestone" transform="translate(250,450)" />
+	<use xlink:href="#Whitestone" transform="translate(350,450)" />
+	<use xlink:href="#Whitestone" transform="translate(450,450)" />
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

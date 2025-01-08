@@ -677,6 +677,537 @@ tsibongy depuis lequel on sème les graines capturées.</p>
     terminé son tour de jeu.
 </p>
 
+<p>Une fois qu'on sait ce qu'il se passe à la fin d'un semis élémentaire, 
+    il ne reste plus qu'à voir comment démarrer un semis élémentaire. 
+    Une méthode a déjà été vue&nbsp;: souvent, on démarre un nouveau 
+    semis élémentaire lorsquon vient d'en finir un (ce qu'on appelle 
+    rejouer). Mais il reste à voir comment on démarre un tour de jeu.
+</p>
+
+<h2>Comment jouer&nbsp;?</h2>
+
+<p>Pour démarrer un tour de jeu, la situation est différente selon la 
+    phase du jeu. Le plus simple est la phase 2 (que Flacourt n'avait pas 
+    décrite) alors on va commencer par elle&nbsp;:
+</p>
+
+<h3>En phase 2</h3>
+
+<p>Pour démarrer un tour de jeu, on choisit une case (de préférence 
+    dans la rangée arrière) et on sème les graines qu'elle contient dans 
+    le sens qu'on veut (mais ce sens restera le même jusqu'à ce que la 
+    dernière graine tombe dans une case vide).
+</p>
+<p>On voit ici qu'on est dans la phase 2, puisqu'il y a déjà 32 graines 
+    dans le plateau&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>1</td><td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td>3</td>
+    </tr>
+</table>
+
+<p>C'est à Sud de jouer. Supposons qu'il décide de semer vers la droite les 3 graines 
+    en bas à gauche&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>1</td><td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td><td>1</td><td>4</td>
+    </tr>
+</table>
+
+<p>Dans ce cas il ne prend pas de graine adverse au début de son tour 
+    de jeu, mais il doit encore semer les 4 graines en bas à droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>2</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td><td>1</td><td></td>
+    </tr>
+</table>
+
+<p>puis les 3 graines en haut à gauche&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>2</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td><td>2</td><td></td>
+    </tr>
+</table>
+
+<p>et là, il doit rejouer&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>2</td><td>2</td><td>4</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td><td></td><td>1</td>
+    </tr>
+</table>
+
+<p>Son tsibongy contient 4 graines et il y a une graine en face mais 
+    <em>il ne la capture pas</em>. En effet <strong>si on ne capture 
+        pas dès le premier semis élémentaire, on ne capture pas durant 
+        tout le tour
+    </strong>. Aussi, durant la phase 2, il est obligatoire, dans la 
+    mesure du possible, de faire un mouvement permettant de capturer 
+    tout de suite. Par exemple avec
+</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>1</td><td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td>3</td>
+    </tr>
+</table>
+
+<p>Sud peut jouer la case voisine du tsibongy droit 
+    (elle ne contient qu'une graine, donc capture 3 graines 
+à gauche ou une graine dans le tsibongy), ou alors les 3 graines en 
+bas à droite, à semer dans le sens inverse des aiguilles d'une 
+montre&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Ce semis élémentaire se terminant dans une case qui était non vide 
+    (il y a 2 graines, parce qu'il y en avait 1), permet d'emblée de 
+    capturer 3 graines, à semer à partir du tsibongy gauche&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case qui n'était pas vide 
+    (il y a maintenant 3 graines dedans, il y en avait donc 2), mais 
+    la case d'en face est vide ce qui fait qu'on ne peut pas capturer. 
+    On resème ces 3 graines (toujours dans le sens des aiguilles d'une 
+    montre)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>4</td><td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td>1</td><td>1</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case qui était jusqu'alors 
+    vide, et le tour de jeu s'arrête là.
+</p>
+
+<h3>En phase 1</h3>
+
+<p>Pour démarrer un tour de jeu en phase 1, on prend une graine dans 
+    la réserve, et on la pose dans une case non vide de la rangée avant, 
+    puis on fait comme si cette graine avait été semée depuis une case 
+    normale&nbsp;: fin d'un semis élémentaire. Il y a trois cas&nbsp;:
+</p>
+
+<h4>Il n'y a que des cases vides dans la rangée intérieure</h4>
+
+<p>Dans ce cas, on a perdu, puisque le but du jeu est justement de 
+    vider la rangée intérieure de l'adversaire.
+</p>
+
+<h4>Toutes les cases non vides de la rangée intérieure sont face 
+    à des cases vides
+</h4>
+
+<p>Dans ce cas, on sème les graines de la case choisie (y compris 
+    celle qu'on vient d'y mettre) dans le sens qu'on veut, jusqu'à ce 
+    que la dernière graine tombe dans une case vide. Comme on n'a pas 
+    capturé dès le début du tour, on ne capture pas même si, plus tard 
+    dans le tour, on se trouve en position de capture. Le tour de jeu 
+    consiste donc à redistribuer ses graines pour plus tard, sans 
+    effectuer une seule capture.
+</p>
+
+<h4>Une capture est possible dès le début du tour de jeu</h4>
+
+<p>Dans ce cas, on est obligé de mettre la graine dans une case non 
+    vide et telle que la case d'en face est non vide aussi. Par exemple 
+    Sud joue&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>1</td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td>1</td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td><td>2</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Il lui est interdit de jouer les deux cases de gauche parce qu'elles 
+    sont vides. Il lui est aussi interdit de jouer le tsibongy droit 
+    parce que dans ce cas, il n'effectuerait pas de capture tout de 
+    suite (en face du tsibongy droit, il y a le tsibongy gauche de Nord, 
+    qui est vide). Il est donc obligé de jouer la case où il y a deux graines&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>1</td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td>1</td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td><td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>ce qui permet de capturer une graine&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td><td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Comme cette graine était dans la moitié droite du plateau on la 
+    sème à partir du tsibongy droit (en clair, on la met dans le 
+    tsibongy droit)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>1</td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td><td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Le semis élémentaire s'étant terminé dans le tsibongy droit, 
+    il faut semer son contenu puisqu'il n'était pas vide avant ce 
+    transfert de graine&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>1</td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td><td>4</td><td></td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Le semis s'étant terminé dans une case qui, jusque là, était vide, 
+    le tour de jeu s'arrête est c'est à Nord de jouer.
+</p>
+
+<h3>But du jeu</h3>
+
+<p>Le but du jeu est de vider la rangée intérieure de son adversaire. 
+    Par exemple, à Sud de jouer&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>1</td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td></td><td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Chaque joueur a encore 9 graines en réserve. Sud en prend une 
+    et la pose dans son tsibongy droit (ce qui est possible car, en face, 
+    il y a une graine à capturer)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>1</td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td><td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td></td><td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Sud capture cette graine, puis la dépose dans son tsibongy droit&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>1</td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td><td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td></td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Cette graine est tombée dans le tsibongy, qui n'était pas vide, 
+    et Sud doit donc semer les graines de ce tsibongy (vers la gauche 
+    puisqu'il s'agit du tsibongy droit)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>1</td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td><td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>1</td><td>4</td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td></td><td></td>
+    </tr>
+</table>
+
+<p>La dernière graine étant tombée dans le tsibongy gauche, qui 
+    est dans la rangée intérieure, n'est pas vide et permet de capturer 
+    la graine qui est en face&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>1</td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>1</td><td>4</td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Il faut ensuite semer les 3 graines du tsibongy gauche (c'est 
+    là où le semis s'est terminé, et il n'y a plus de graine à capturer 
+    en face). Mais comme la rangée intérieure de Nord est vide, Sud a 
+    déjà gagné, et on s'épargne la peine de continuer à semer, ce qui 
+    peut parfois durer trèèèèèèèèèèèèèèèèèèèèèèès longtemps&nbsp;!
+</p>
+
+<h2>Règle des tsibongy</h2>
+
+<p>Lorsqu'on a capturé des graines près d'un tsibongy, on les sème 
+    à partir de ce tsibongy. Dans le jeu à 6 colonnes, si on capture des graines 
+    vers le centre du plateau (les deux cases du centre) on peut choisir 
+    le tsibongy à partir duquel on sème. Et au jeu traditionnel sur 8 
+    colonnes, on peut choisir le tsibongy si on capture depuis l'une 
+    des 4 cases centrales. Pour Sud cela donne les schémas suivants, 
+    d'abord pour le fifangakely sur 4 colonnes&nbsp;: 
+</p>
+
+<table>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>&rarr;</td><td>&rarr;</td><td>&larr;</td><td>&larr;</td>
+    </tr>
+    
+    <tr>
+        <td>&rarr;</td><td></td><td></td><td>&larr;</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+
+<p>Pour la version à 6 colonnes (le point d'interrogation signifie 
+    qu'on a le choix)&nbsp;</p>
+
+<table>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>→</td><td>→</td><td>?</td><td>?</td>
+        <td>←</td><td>←</td>
+    </tr>
+    
+    <tr>
+        <td>→</td><td></td><td></td><td></td>
+        <td></td><td>←</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+        <td></td><td></td>
+    </tr>
+</table>
+
+<p>et pour le katra fandatsaka à 8 colonnes&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>→</td><td>→</td><td>?</td><td>?</td>
+        <td>?</td><td>?</td><td>←</td><td>←</td>
+    </tr>
+    
+    <tr>
+        <td>→</td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td>←</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+
 
 
 

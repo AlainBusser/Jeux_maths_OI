@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<title>bevohoka</title>
+<meta charset="utf-8">
+<style>
+body {
+    background-color: lightyellow;
+}
+table {
+	background-color: brown;
+	border-radius: 1em;
+}
+table td {
+    border: 1px solid brown;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    minimum-width: 2em;
+    minimum-height: 2em;
+    text-align: center;
+    background: radial-gradient(farthest-corner at 0.2em 1em, lightyellow 0%, lightyellow 50%, brown 100%);
+}
+#t0 {
+    background: radial-gradient(farthest-corner at 0.2em 1em, lightyellow 0%, lightyellow 50%, green 100%);
+}
+</style>
+</head>
+<body>
+<h2>But du jeu</h2>
+<p>il y a 24 graines. 
+On sème les graines une par une, dans le sens de son choix, 
+à partir d'une case non vide, pour réarranger le plateau. 
+Si la dernière graine tombe dans une case non vide, on 
+recommence à semer, dans le même sens, jusqu'à ce que 
+la dernière graine tombe dans une case vide ou dans la cupule 
+verte. Dans ce cas on rejoue. Le but du jeu est de finir avec 
+24 graines dans la cupule verte.</p>
+<table>
+<tr>
+    <td id="t5" onClick="semer(5)">2</td>
+    <td id="t4" onClick="semer(4)">2</td>
+    <td id="t3" onClick="semer(3)">2</td>
+    <td id="t2" onClick="semer(2)">3</td>
+    <td id="t1" onClick="semer(1)">3</td>
+    <td id="t0" onClick="semer(0)">0</td>
+</tr>
+<tr>
+    <td id="t6" onClick="semer(6)">2</td>
+    <td id="t7" onClick="semer(7)">2</td>
+    <td id="t8" onClick="semer(8)">2</td>
+    <td id="t9" onClick="semer(9)">2</td>
+    <td id="t10" onClick="semer(10)">2</td>
+    <td id="t11" onClick="semer(11)">2</td>
+</tr>
+</table>
+<h3>Tu as semé <code id="nbcptr">0</code> fois.</h3>
+<script>
+const N = 12
+let compteur = 0
+let i = 0
+let di = function(nom){
+    return document.getElementById(nom)
+}
+let semer = function(lieu) {
+		let cupule = di("t"+lieu)
+		let graines = parseInt(cupule.innerHTML)
+		if (graines>0) {
+		go_on = (graines>0)
+		while (go_on) {
+			cupule.innerHTML = 0
+			for (t = graines, i = (lieu+1+N)%N;t>0;t--,i=(i+1+N)%N){
+					di("t"+i).innerHTML = 1+parseInt(di("t"+i).innerHTML)
+				}
+			lieu = (i-1+N)%N
+			cupule = di("t"+lieu)
+			graines = parseInt(cupule.innerHTML)
+			if ((lieu!=0) && (graines == 1)) {
+				compteur++
+				go_on = false
+				}
+			if (lieu==0) {go_on = false}
+			}
+				di("nbcptr").innerHTML = compteur
+			
+	}
+
+}
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+table {
+	border-radius: 8px;
+	border: 1px solid black;
+	background-color: lightyellow;
+}	
+table td {
+	border-radius: 8px;
+	border: 1px solid brown;
+	width: 2em;
+	minimum-width: 2em;
+	height: 2em;
+	minimum-height: 2em;
+	text-align: center;
+}
+.rouge {
+	background-color: pink;
+}
+.vert {
+	background-color: lightgreen;
+}
+
+	</style>
+</head>
+<body>
+<p>Nord ←</p>
+<table>
+<tr>
+<td id="t0" onclick="jouer(0)" class="vert">2</td>
+<td id="t1" onclick="jouer(1)" class="vert">2</td>
+<td id="t2" onclick="jouer(2)" class="vert">2</td>
+<td id="t3" onclick="jouer(3)" class="vert">2</td>
+<td id="t4" onclick="jouer(4)" class="vert">2</td>
+<td id="t5" onclick="jouer(5)" class="vert">2</td>
+<td id="t6" onclick="jouer(6)" class="vert">2</td>
+<td id="t7" onclick="jouer(7)" class="vert">2</td>
+</tr>
+</table>
+<p>Sud →</p>
+<h2>C'est à <code id="tourjeu">Sud</code> de jouer</h2>
+
+<script>
+const N = 8
+const nom = []
+nom[-1] = "Nord"
+nom[1] = "Sud"
+let joueur = 1
+const di = nom => document.getElementById(nom)
+const nbgraines = i => parseInt(di("t"+i).innerHTML)
+const jouable = (j,i) => (i+j*nbgraines(i)>=0 && i+j*nbgraines(i)<N && nbgraines(i+j*nbgraines(i))>0)
+const colorier = function() {
+	for (i=0; i<N; i++) di("t"+i).className = "rouge"
+	for (i=0; i<N; i++) {
+		if (jouable(joueur,i)) di("t"+i).className = "vert"
+	}
+}
+const jouer = function(i) {
+	if (jouable(joueur,i)) {
+		for (n=nbgraines(i),k=i+joueur; n>0; n--,k+=joueur) {
+			di("t"+k).innerHTML = nbgraines(k)+1
+		} 
+		di("t"+i).innerHTML = 0
+		joueur = -joueur
+		di("tourjeu").innerHTML = nom[joueur]
+		colorier()
+	}
+}
+
+colorier()
+</script>
+
+
+
+
+
+</body>
+</html>

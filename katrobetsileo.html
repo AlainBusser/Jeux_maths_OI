@@ -237,11 +237,911 @@ la règle de capture devient la suivante&nbsp;:</p>
     </tr>
 </table>
 
+<p>C'est sur ce plateau qu'on va illustrer le début d'une partie. Sud sème 
+    en suivant (soit dans l'ordre croissant des numéros, soit dans l'ordre 
+    décroissant) ce serpent&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>5</td><td>6</td>
+    </tr>
+    <tr>
+        <td>4</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td>
+    </tr>
+</table>
+
+<p>et Nord selon ce serpent&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>4</td>
+    </tr>
+    <tr>
+        <td>6</td><td>5</td>
+    </tr>
+
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+</table>
+
+<p>Chacun des serpents se mord la queue&nbsp;: après 6 c'est de nouveau 
+    1 (et avant 1, c'est 6).
+</p>
+
+<p>Sud commence, et décide de semer les graines qui sont en bas à droite, 
+    dans le sens direct (numéros de cases croissants sur le serpent). Il 
+    prend ces graines&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>2</td>
+    </tr>
+</table>
+
+<p>puis les sème&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide qui n'est pas dans 
+    la rangée intérieure, donc Sud resème ces graines et uniquement elles&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>3</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide de la rangée 
+    intérieure donc Sud capture les graines qui sont en face&nbsp;:</p>
+
+<table>
+        <tr>
+            <td>2</td><td>2</td>
+        </tr>
+        <tr>
+            <td>2</td><td>2</td>
+        </tr>
+        <tr>
+            <td>2</td><td></td>
+        </tr>
+        
+        <tr>
+            <td>3</td><td>5</td>
+        </tr>
+        <tr>
+            <td>3</td><td></td>
+        </tr>
+        <tr>
+            <td></td><td>3</td>
+        </tr>
+</table>
+
+<p>puis sème les 5 graines, à partir de la case suivante. Mais la case qui suit 
+    celle qui est en haut à droite (les 5 graines) est en bas à gauche, ce 
+    qui fait que le semis s'arrête là aussi dans la ligne intérieure&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td></td>
+    </tr>
+    <tr>
+        <td>4</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+</table>
+
+<p>Sud capture alors les graines qui sont en face&nbsp;:</p>
 
 
+<table>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>6</td><td></td>
+    </tr>
+    <tr>
+        <td>4</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+</table>
+
+<p>puis  sème (toujours dans le même sens) les 6 graines&nbsp;:</p>
 
 
+<table>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>5</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>5</td>
+    </tr>
+</table>
 
+<p>Pour l'instant, la ligne de front de Nord est la ligne intermédiaire 
+    puisque sa ligne intérieure est vide. Mais Sud ne capture pas dans 
+    cette ligne, car la dernière graine est tombée dans une case qui était 
+    vide&nbsp;: le tour de jeu de Sud s'arrête là. C'est à Nord de jouer. 
+    Nord choisit de semer les deux graines qui sont en haut à droite, mais 
+    dans le sens des numéros décroissants. Il prend les deux graines à 
+    semer dans la case numéro 1&nbsp;
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>5</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>5</td>
+    </tr>
+</table>
+
+<p>pose la première des graines dans la case numéro 6 (celle qui est avant la 
+    numéro 1)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>5</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>5</td>
+    </tr>
+</table>
+
+<p>puis la seconde dans la case numéro 5&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>5</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>5</td>
+    </tr>
+</table>
+
+<p>La dernière graine étant tombée dans une case qui était jusqu'alors vide, 
+    le tour de jeu de Nord s'arrête là, et c'est à nouveau à Sud de jouer. 
+    On constate que la ligne intérieure de Nord est à nouveau remplie. Sud 
+    décide de jouer à nouveau la case en bas à gauche, et toujours dans le 
+    même sens&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>5</td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td>6</td>
+    </tr>
+</table>
+
+<p>Sud rejoue, en semant (toujours dans le même sens) les 3 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>6</td>
+    </tr>
+</table>
+
+<p>ce qui lui permet de capturer (la ligne intérieure de Nord étant à 
+    nouveau capturable)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>6</td>
+    </tr>
+</table>
+
+<p>puis de semer les 3 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>6</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>7</td>
+    </tr>
+</table>
+
+<p>La dernière graine étant tombée dans une case vide, c'est à Nord de jouer. 
+    Nord décide de semer dans l'ordre décroissant les 2 graines de sa case 
+    numéro 2 (en haut à gauche). Il prend ces deux graines&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>6</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>7</td>
+    </tr>
+</table>
+
+<p>pose la première à côté&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>6</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>7</td>
+    </tr>
+</table>
+
+<p>puis la suivante dans sa case numéro 6 (qui vient avant 1)&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>6</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>7</td>
+    </tr>
+</table>
+
+<p>ce qui lui permet de capturer 2 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>4</td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>6</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>7</td>
+    </tr>
+</table>
+
+<p>pour, ensuite, semer 4 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>6</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>7</td>
+    </tr>
+</table>
+
+<p>Sud joue la case en bas à gauche, toujours dans l'ordre croissant des 
+    numéros de case. En clair, Sud transfère la graine là où il y en avait 
+    7&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>6</td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>8</td>
+    </tr>
+</table>
+
+<p>puis sème les 8 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>8</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+</table>
+
+<p>ce qui lui donne à nouveau 8 graines à semer&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>lui permet de capturer une graine&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>4</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>d'en semer 4&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>et d'en semer 2&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>C'est à Nord de jouer. Nord choisit de transférer la graine en haut à 
+    gauche (case numéro 2) vers celle (case numéro 3) qui en contient 3&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>4</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>Comme la rangée intérieure de Nord est vide, Nord peut capturer&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>8</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>ce qui lui fait 8 graines à semer&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>Maintenant Nord capture&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td>1</td><td>3</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>puis sème les 3 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>puis rejoue (en semant les 2 graines)&nbsp;:</p>
+
+<table>
+    <tr>
+        <td></td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>5</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>puis sème les 5 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td>
+    </tr>
+    <tr>
+        <td>3</td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>puis sème 3 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>4</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>puis 4 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>5</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td>
+    </tr>
+</table>
 
 
 

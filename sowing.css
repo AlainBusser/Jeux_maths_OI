@@ -3,6 +3,18 @@ table {
     background: rgb(160,96,64);
     box-shadow: 8px 5px 13px gray;
 }
+.tabint4 {
+    width: 320px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+}
+.tabint6 {
+    width: 480px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+}
 table td {
     width: 64px;
     height: 64px;
@@ -11,4 +23,11 @@ table td {
     text-align: center;
     background: radial-gradient(lightyellow 0, orange 75%, black 100%);
     border: 4px solid rgb(160,96,64);
+}
+
+td.reserve {
+    width: 64px;
+    min-width: 64px;
+    height: 128px;
+    border-radius: 32px;
 }

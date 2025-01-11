@@ -52,9 +52,844 @@
     deux réserves de part et d'autre)&nbsp;:
 </p>
 
+<table>
+    <tr>
+        <td class="reserve">
+            
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+            
+        </td>
+    </tr>
+</table>
+
+<p>Les deux joueuses s'appellent respectivement Nord (qui a les cases d'en haut) 
+    et Sud (qui a les cases d'en bas). Avant de jouer, on dépose des graines 
+    (par exemple 3 par case) dans toutes les cases autres que les réserves. 
+    Chaque joueuse a aussi une réserve de graines, initialament vide, située 
+    à sa droite. Ci-dessus, la réserve de Nord est à gauche, la réserve de Sud 
+    est à droite. 
+</p>
+
+<h2>Règle du jeu</h2>
+
+<p>Un tour de jeu consiste à</p>
+
+<ul>
+    <li>choisir une de ses cases (dans la rangée la plus proche de soi), 
+        où il y a au moins une graine,
+    </li>
+    <li>prendre dans sa main toutes les graines de la case choisie,</li>
+    <li>semer les graines une par une dans les cases suivantes.</li>
+</ul>
+
+<h3>Semer</h3>
+
+<p>On sème selon un circuit qui est différent d'une joueuse à l'autre. Voici 
+    le circuit de Nord&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         7   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td>
+    </tr>
+    <tr>
+        <td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+            
+        </td>
+    </tr>
+</table>
+
+<p>où on considère que la case numéro 14 est la case numéro 1. On remarque 
+    que Nord passe par sa réserve en semant, mais ne passe pas par la 
+    réserve de Sud.
+</p>
+
+<p>Voici le circuit de Sud&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+            
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+         7   
+        </td>
+    </tr>
+</table>
+
+<p>Par exemple, Sud veut semer les 4 graines qui sont dans sa case numéro 4&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>8</td><td></td><td>3</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td>4</td><td>1</td><td>2</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          3  
+        </td>
+    </tr>
+</table>
+<p>Elle commence par prendre les 4 graines dans sa main&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>8</td><td></td><td>3</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>1</td><td>2</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          3  
+        </td>
+    </tr>
+</table>
+
+<p>puis elle place la première graine dans la case suivant celle 
+    qu'elle a choisie (la voisine de droite)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>8</td><td></td><td>3</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td>2</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          3  
+        </td>
+    </tr>
+</table>
+
+<p>puis elle place la seconde graine à semer, dans la case suivante 
+    (la case de droite)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>8</td><td></td><td>3</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td>3</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          3  
+        </td>
+    </tr>
+</table>
+
+<p>puis elle sème la troisième graine dans la réserve (la case qui suit 
+    la case en bas à droite)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>8</td><td></td><td>3</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td>3</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          4  
+        </td>
+    </tr>
+</table>
+
+<p>et enfin, elle sème la dernière des 4 graines dans la case qui suit la 
+    réserve, c'est la case en haut à droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>8</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td>3</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          4  
+        </td>
+    </tr>
+</table>
+
+<p>Quand Sud a semé les 4 graines, son tour de jeu s'arrête là et c'est au tour 
+    de Nord de jouer.
+</p>
+
+<p>Voici un autre exemple, où Sud décide de semer les 8 graines qui sont 
+    en bas à droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td>8</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          4  
+        </td>
+    </tr>
+</table>
+
+<p>Elle commence par prendre les 8 graines et les mettre dans sa main&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          4  
+        </td>
+    </tr>
+</table>
+
+<p>elle sème la première graine dans sa réserve (qui est juste après sa 
+    case de droite)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+
+<p>Elle sème la seconde graine dans la case qui suit sa réserve (c'est 
+    la, case de droite côté Nord)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>3</td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+<p>Elle sème la troisième graine à gauche de là où elle a semé 
+    la deuxième graine&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>3</td><td>1</td><td>5</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+
+<p>Elle sème la quatrième graine dans la case suivante (la voisine de 
+    gauche)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td></td><td>4</td><td>1</td><td>5</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+
+<p>Elle sème la cinquième graine dans la voisine de gauche&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>1</td><td>4</td><td>1</td><td>5</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+
+<p>Elle sème la sixième graine encore plus à gauche&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>2</td><td>1</td><td>4</td><td>1</td><td>5</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+
+<p>et la septième graine tombe dans la case de Nord tout à gauche&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>3</td><td>2</td><td>1</td><td>4</td><td>1</td><td>5</td>
+    </tr>
+    <tr>
+        <td>6</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+
+<p>Où semer la huitième graine&nbsp;? Pas dans la réserve de Nord (faut pas 
+    exagérer non plus, le but du jeu est de remplir le plus possible sa 
+    propre réserve, pas celle de l'adversaire). Du point de vue de Sud, la case 
+    qui suit la case gauche de Nord est la case gauche de Sud. C'est donc 
+    dans celle là que Sud finit son tour de jeu, en bas à gauche&nbsp;: 
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         5   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>3</td><td>2</td><td>1</td><td>4</td><td>1</td><td>5</td>
+    </tr>
+    <tr>
+        <td>7</td><td></td><td>1</td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          5  
+        </td>
+    </tr>
+</table>
+
+<h3>Semer dans sa réserve</h3>
+
+<p>Si la dernière graine d'un semis tombe dans la réserve, on rejoue. Par 
+    exemple, Sud veut semer les 3 graines&nbsp;:
+</p>
 
 
 <table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>3</td><td>1</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          6  
+        </td>
+    </tr>
+</table>
+
+<p>Sud prend donc les 3 graines dans sa main&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td></td><td>1</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          6  
+        </td>
+    </tr>
+</table>
+
+<p>en sème une dans la case suivant la case choisie&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          6  
+        </td>
+    </tr>
+</table>
+
+<p>la deuxième dans la case à droite&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td></td><td>2</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          6  
+        </td>
+    </tr>
+</table>
+
+<p>et la troisième dans la case qui suit la case de droite, c'est-à-dire 
+    la réserve&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td></td><td>2</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          7  
+        </td>
+    </tr>
+</table>
+
+<p>Comme le semis s'est terminé dans la réserve, Sud rejoue. Par exemple en 
+    semant l'unique graine tout à droite, c'est-à-dire en la transférant ... 
+    dans la réserve&nbsp;!
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          8  
+        </td>
+    </tr>
+</table>
+
+<p>Mais du coup la (dernière) graine étant tombée dans la réserve, Sud 
+    rejoue encore une fois&nbsp;! Elle choisit de semer les 2 graines 
+    vers la droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td></td><td></td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          9  
+        </td>
+    </tr>
+</table>
+<p>Et comme la deuxième des deux graines semées est tombée dans la réserve, 
+    c'est encore à Sud de rejouer (Nord commence à s'impatienter), en semant 
+    l'unique graine à droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          10  
+        </td>
+    </tr>
+</table>
+
+<p>Cette graine étant tombée dans la réserve, c'est encore à Sud de rejouer, 
+    cette fois-ci en semant les deux graines de gauche&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         8   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td>2</td><td>1</td><td>6</td><td>3</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td><td>1</td><td></td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          10  
+        </td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée ailleurs que dans la réserve, donc cette 
+    fois-ci, c'est bien à Nord de jouer.
+</p>
+
+<h3>But du jeu</h3>
+
+<p>Pour commencer un tour de jeu, on choisit une case non vide. Si on 
+    ne peut pas, c'est qu'on n'a plus de graine à semer parce que la rangée est 
+    vide. Dans ce cas, le jeu s'arrête. La question est de savoir qui a gagné.
+</p>
+
+<ul>
+    <li>Certains enfants ont déclaré que le joueur qui ne peut plus jouer, 
+        a perdu (c'est un point de vue très 
+        <a href="https://fr.wikipedia.org/wiki/John_Horton_Conway">conwayen</a>)
+    </li>
+    <li>D'autres au contraire ont déclaré qu'il a gagné une sorte de course 
+        (similaire au <a href="bevohoka.html">katro bevohoka</a>)
+    </li>
+    <li>Mais en fait, pour savoir qui a gagné, on compare les deux réserves&nbsp;: 
+        la gagnante est celle qui a mis le plus grand nombre de graines dans 
+        sa réserve.
+    </li>
+</ul>
+
+<p>Par exemple, Sud sème les deux graines à droite&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         15   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          14  
+        </td>
+    </tr>
+</table>
+
+<p>La dernière des deux tombe dans la réserve&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         15   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          15  
+        </td>
+    </tr>
+</table>
+
+<p>Du coup, Sud rejoue, en transférant la graine de droite dans la réserve&nbsp;:</p>
+
+<table>
+    <tr>
+        <td class="reserve">
+         15   
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+          16  
+        </td>
+    </tr>
+</table>
+
+<p>La (dernière) graine étant tombée dans la réserve, Sud rejoue. Mais 
+    Sud ne peut pas rejouer parce qu'il ne lui reste plus de graine à semer. 
+    La partie du jeu s'arrête donc là. On voit que Nord a 15 graines dans sa 
+    réserve alors que Sud en a 16. 16, c'est plus que 15, donc Sud a gagné.
+</p>
+
+<p>On objectera que Nord a 20 graines ce qui est plus que 16. Mais les 
+    5 graines n'étant pas dans la réserve de Nord, ne comptent pas.
+</p>
+
+<p>Si jamais il y a autant de graines dans les deux réserves, on décide 
+    que la gagnante est celle à qui il restait encore des graines en-dehors 
+    de sa réserve. 
+</p>
+
+<h2>Variantes</h2>
+
+<p>On peut faire varier le nombre de cases par joueuse (ici 6) ou le 
+    nombre de graine par case (ici 3). Du CP au CM2, les deux variantes 
+    ayant eu le plus de succès sont à un nombre total de 24 graines&nbsp;:
+</p>
+
+<h3>6 cases par joueuse</h3>
+
+<table>
+    <tr>
+        <td class="reserve">
+            
+        </td>
+        <td style="background:none;">
+<table class="tabint6">
     <tr>
         <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
     </tr>
@@ -62,44 +897,40 @@
         <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
     </tr>
 </table>
+    </td>
+        <td class="reserve">
+            
+        </td>
+    </tr>
+</table>
 
 
+<h3>4 cases par joueuse</h3>
 
+<table>
+    <tr>
+        <td class="reserve">
+            
+        </td>
+        <td style="background:none;">
+<table class="tabint4">
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+            
+        </td>
+    </tr>
+</table>
 
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>Au collège, des variantes à plus de graines (par exemple 4 graines par 
+    case et 6 cases voire 8 cases par joueuse) ont également du succès.
+</p>
 
 
 

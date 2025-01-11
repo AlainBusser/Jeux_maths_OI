@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="sowing.css">
+    <title>sowing</title>
+</head>    
+
+
+<body>
+
+<h1>Version qui perd gagne de Sowing</h1>
+
+<h2>Histoire de ce jeu</h2>
+
+<p>Au milieu des années 1990, à l'occasion d'un séminaire sur les jeux 
+    mathématiques, <a href="https://fr.wikipedia.org/wiki/John_Horton_Conway">John Conway</a> 
+    a fait la remarque que les jeux de semailles sont beaucoup moins étudiés 
+    mathématiquement, que d'autres jeux comme go, les échecs, les dames etc. 
+    Pour illustrer son propos, il a inventé un jeu de semailles d'une 
+    simplicité extrême, qu'il a nommé Sowing. Ce jeu est jouable même en 
+    Grande Section (chez les élèves latéralisés).
+</p>
+<p>Lors du même séminaire, Conway a inventé une version bilatérale de Sowing, 
+    qui a moins de succès, de par une complexité accrue peut-être.
+</p>
+<p>En 2024, un enfant réunionnais (alors en Grande Section) a eu l'idée 
+    d'inventer un nouveau jeu de semailles en modifiant les phrases de la 
+    règle du jeu. Par exemple la phrase commençant par <em>Lorsque la dernière 
+        graine du semis tombe dans une case qui était vide jusqu'alors ...
+    </em> se termine
+</p>
+<ul>
+    <li>dans <a href="katro.html">katro</a>, par <em>le tour de jeu s'arrête</em></li>
+    <li>dans Sowing, par <em>on a perdu le jeu</em>.</li>
+</ul>
+<p>Une modification simple est de remplacer dans le but du jeu, le mot 
+    <em>gagnant</em> par le mot <em>perdant</em>. C'est ainsi qu'a été créé 
+    par un réunionnais de 6 ans, la version <em>qui perd gagne</em> de Sowing, 
+    en 2024&nbsp;!
+</p>
+
+<h2>Sowing</h2>
+
+<p>Ce jeu se joue sur un plateau d'une seule rangée, commune aux deux joueurs, 
+    par exemple avec 8 cases&nbsp;:
+</p>
+
+<table><tr>
+    <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+
+<p>Chaque joueur à son tour prend les graines d'une case non vide, les 
+    met dans sa main puis les sème vers sa droite. Par exemple Sud sème les 
+    graines de la case tout à gauche, en les mettant dans sa main&nbsp;:
+</p>
+
+<table><tr>
+    <td></td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+
+<p>puis en posant la première des 2 graines dans la case voisine (de droite)&nbsp;:</p>
+
+<table><tr>
+    <td></td><td>3</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+
+<p>et la deuxième des 2 graines dans la suivante (la voisine de la voisine)&nbsp;:</p>
+
+<table><tr>
+    <td></td><td>3</td><td>3</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+
+<p>Les joueurs jouent chacun son tour. On remarque que Nord sème vers la gauche, 
+    parce que Nord est en face et la droite de Nord est notre gauche à nous. 
+</p>
+
+<p>Si la dernière graine semée tombe hors du plateau, ou dans une case vide, 
+    on a perdu. Par exemple ici Sud a perdu&nbsp;:
+</p>
+
+<table><tr>
+    <td>2</td><td>3</td><td></td><td>3</td><td></td><td>4</td>
+</tr></table>
+
+<p>En effet</p>
+
+<ul>
+    <li>Si Sud sème les 2 graines (vers la droite) la seconde des 2 tombera 
+        dans une case qui est actuellement vide.
+    </li>
+    <li>Si Sud sème les 3 graines de la seconde case, la troisième tombera 
+        dans une case vide.
+    </li>
+    <li>Si Sud sème les 3 graines vers la droite, la troisième tombera 
+        hors du plateau.
+    </li>
+    <li>Si Sud sème les 4 graines, elles tomberont toutes hors du plateau.</li>
+</ul>
+
+
+
+
+<p>On peut s'entraîner en ligne en suivant l'un de ces liens (à chaque fois, 
+    c'est 2 graines par case au début, sauf exception)&nbsp;:
+</p>
+
+<ul>
+    <li>à <a href="sowing3.html">3 cases</a> </li>
+    <li>à <a href="sowing4.html">4 cases</a> </li>
+    <li>à <a href="sowing5.html">5 cases</a> </li>
+    <li>à <a href="sowing6.html">6 cases</a> </li>
+    <li>à <a href="sowing7.html">7 cases</a> </li>
+    <li>à <a href="sowing8.html">8 cases</a> </li>
+    <li>à <a href="sowing9.html">9 cases</a> </li>
+    <li>à <a href="sowing10.html">10 cases</a> </li>
+    <li>une <a href="sowing8bis.html">version alternative à 8 cases</a> </li>
+</ul>
+
+<p>Pour chacun de ces jeux, les cases jouables sont coloriées en vert et les 
+    autres sont en rose. Cela permet de faire rapidement des choix pour jouer, 
+    et de voir au premier coup d'œil si on a perdu.
+</p>
+
+<h2>Qui perd gagne</h2>
+
+<p>On a les mêmes règles que pour Sowing, sauf que 
+    <strong>le premier qui est bloqué a gagné</strong>.
+</p>
+
+<p>On peut dire, avec les pages web ci-dessus, que le but du jeu est d'être 
+    le premier qui colorie tout le plateau en rose.
+</p>
+
+<h3>Exemple de partie</h3>
+
+<p>Sud joue et gagne avec ce jeu&nbsp;:</p>
+
+<table><tr>
+    <td>2</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+
+<p>Les deux cases de la moitié droite sont injouables pour Sud, parce 
+    qu'elles sont trop à droite (la dernière graine, voire les 2 graines, 
+    sortirait du plateau). Sud a donc deux choix, la case tout à gauche 
+    ou l'autre. Sud choisit de semer les 2 graines qui étaient dans la case 
+    tout à gauche&nbsp;:
+</p>
+
+<table><tr>
+    <td></td><td>3</td><td>3</td><td>2</td>
+</tr></table>
+
+<p>C'est à Nord de jouer.</p>
+
+<ol>
+    <li>Nord ne peut pas jouer la première case (à gauche) parce que 
+        celle-ci est vide.
+    </li>
+    <li>Nord ne peut pas non plus semer les 3 graines de la seconde 
+        case, car seule la première tomberait dans le plateau (dans 
+        la case de gauche), les autres sortiraient du plateau par 
+        la gauche.
+    </li>
+    <li>Nord ne peut pas non plus semer les 3 graines de la troisième 
+        case, en  effet
+        <ul>
+            <li>la première tomberait dans la case où il y en a déjà 3,</li>
+            <li>la seconde tomberait tout à gauche (case actuellement vide),</li>
+            <li>mais du coup, la troisième tomberait hors du plateau.</li>
+        </ul>
+
+    </li>
+    <li>Nord ne peut donc jouer que la case tout à droite, ce qui aboutit à&nbsp;:</li>
+</ol>
+
+<table><tr>
+    <td></td><td>4</td><td>4</td><td></td>
+</tr></table>
+
+<p>Là, plus personne ne peut rien semer. Mais c'est à Sud de jouer, et 
+    donc <em>Sud a gagné</em>&nbsp;!
+</p>
+
+
+
+
+
+
+
+
+</body></html>

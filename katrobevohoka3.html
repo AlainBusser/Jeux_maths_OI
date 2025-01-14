@@ -49,12 +49,31 @@ verte. Dans ce cas on rejoue. Le but du jeu est de finir avec
 </tr>
 </table>
 <h3>Tu as semé <code id="nbcptr">0</code> fois.</h3>
+<p>L'entropie est <code id="entrop">2.292481250360578</code> bits.</p>
 <script>
 const N = 6
 let compteur = 0
 let i = 0
 let di = function(nom){
     return document.getElementById(nom)
+}
+const l2 = function(x) {
+    if (x<=0) return 0 
+    else return Math.log2(x)
+}
+const tableau = function() {
+    let tab = []
+    for (let i = 0; i < N; i++) {
+        tab[i] = parseInt(di("t"+i).innerHTML)
+    }
+    return tab
+}
+const entropy = function(tab) {
+    let s = 0
+    for (let i = 0; i < tab.length; i++) {
+        s -= tab[i]*l2(tab[i]/(2*N))/(2*N)
+    }
+    return s;
 }
 let semer = function(lieu) {
 		let cupule = di("t"+lieu)
@@ -76,6 +95,7 @@ let semer = function(lieu) {
 			if (lieu==0) {go_on = false}
 			}
 				di("nbcptr").innerHTML = compteur
+                di("entrop").innerHTML = entropy(tableau())
 			
 	}
 

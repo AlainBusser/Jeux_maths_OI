@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <title>katro</title>
@@ -59,14 +59,33 @@ verte. Dans ce cas on rejoue. Le but du jeu est de finir avec
 </tr>
 </table>
 <h3>Tu as semé <code id="nbcptr">0</code> fois.</h3>
+<p>L'entropie est <code id="entrop">3.890319531114783</code> bits.</p>
 <script>
 const N = 16
 let compteur = 0
 let i = 0
-let di = function(nom){
+const di = function(nom){
     return document.getElementById(nom)
 }
-let semer = function(lieu) {
+const l2 = function(x) {
+    if (x<=0) return 0 
+    else return Math.log2(x)
+}
+const tableau = function() {
+    let tab = []
+    for (let i = 0; i < N; i++) {
+        tab[i] = parseInt(di("t"+i).innerHTML)
+    }
+    return tab
+}
+const entropy = function(tab) {
+    let s = 0
+    for (let i = 0; i < tab.length; i++) {
+        s -= tab[i]*l2(tab[i]/(2*N))/(2*N)
+    }
+    return s;
+}
+const semer = function(lieu) {
 		let cupule = di("t"+lieu)
 		let graines = parseInt(cupule.innerHTML)
 		if (graines>0) {
@@ -86,6 +105,7 @@ let semer = function(lieu) {
 			if (lieu==0) {go_on = false}
 			}
 				di("nbcptr").innerHTML = compteur
+                di("entrop").innerHTML = entropy(tableau())
 			
 	}
 

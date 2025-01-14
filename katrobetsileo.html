@@ -579,8 +579,7 @@ la règle de capture devient la suivante&nbsp;:</p>
 
 
 <p>La dernière graine est tombée dans une case vide, donc c'est à 
-    Sud de jouer. Sud décide de semer la case en bas à gauche, dans le 
-    même sens qu'à son premier tour&nbsp;:
+    Sud de jouer. Sud décide de semer la case où il n'y a qu'une graine, toujours dans le même sens&nbsp;:
 </p>
 
 <table>
@@ -595,17 +594,16 @@ la règle de capture devient la suivante&nbsp;:</p>
     </tr>
     
     <tr>
-        <td></td><td>1</td>
+        <td></td><td></td>
     </tr>
     <tr>
-        <td>5</td><td>3</td>
+        <td>5</td><td>2</td>
     </tr>
     <tr>
-        <td></td><td>6</td>
+        <td>3</td><td>5</td>
     </tr>
 </table>
-
-<p>puis en semant les 3 graines (toujours dans le même sens)&nbsp;:</p>
+<p>Il lui faut sejouer, en semant les 3 graines&nbsp;:</p>
 
 <table>
     <tr>
@@ -619,17 +617,64 @@ la règle de capture devient la suivante&nbsp;:</p>
     </tr>
     
     <tr>
-        <td>1</td><td>3</td>
+        <td></td><td></td>
     </tr>
     <tr>
-        <td>6</td><td></td>
+        <td>6</td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td>6</td>
+    </tr>
+</table>
+<p>ce qui lui permer de caturer une graine en face&nbsp;:</p>
+<table>
+    <tr>
+        <td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>7</td><td>3</td>
     </tr>
     <tr>
         <td></td><td>6</td>
     </tr>
 </table>
 
-<p>ce qui lui permet de capturer une graine de la rangée avant&nbsp;:</p>
+<p>et il rejoue (en semant les 7 graines), et encore, et encore etc. Au bout d'un temps assez long, 
+    il lui faut semer les 5 graines en bas à gauche&nbsp;:</p>
+
+    <table>
+        <tr>
+            <td>3</td><td>1</td>
+        </tr>
+        <tr>
+            <td></td><td>3</td>
+        </tr>
+        <tr>
+            <td></td><td>1</td>
+        </tr>
+        
+        <tr>
+            <td>2</td><td>7</td>
+        </tr>
+        <tr>
+            <td>1</td><td></td>
+        </tr>
+        <tr>
+            <td>5</td><td>1</td>
+        </tr>
+    </table>
+    
+<p>ce qui aboutit à &nbsp;:</p>
 
 <table>
     <tr>
@@ -639,21 +684,21 @@ la règle de capture devient la suivante&nbsp;:</p>
         <td></td><td>3</td>
     </tr>
     <tr>
-        <td>1</td><td></td>
+        <td></td><td>1</td>
     </tr>
     
     <tr>
-        <td>1</td><td>4</td>
+        <td>3</td><td>8</td>
     </tr>
     <tr>
-        <td>6</td><td></td>
+        <td>2</td><td>1</td>
     </tr>
     <tr>
-        <td></td><td>6</td>
+        <td></td><td>2</td>
     </tr>
 </table>
 
-<p>semer les 4 graines&nbsp;:</p>
+<p>Sud capture une graine&nbsp;:</p>
 
 <table>
     <tr>
@@ -663,45 +708,21 @@ la règle de capture devient la suivante&nbsp;:</p>
         <td></td><td>3</td>
     </tr>
     <tr>
-        <td>1</td><td></td>
+        <td></td><td></td>
     </tr>
     
     <tr>
-        <td>1</td><td></td>
+        <td>3</td><td>9</td>
     </tr>
     <tr>
-        <td>7</td><td>1</td>
+        <td>2</td><td>1</td>
     </tr>
     <tr>
-        <td>1</td><td>7</td>
+        <td></td><td>2</td>
     </tr>
 </table>
 
-<p>semer les 7 graines&nbsp;:</p>
-
-<table>
-    <tr>
-        <td>3</td><td>1</td>
-    </tr>
-    <tr>
-        <td></td><td>3</td>
-    </tr>
-    <tr>
-        <td>1</td><td></td>
-    </tr>
-    
-    <tr>
-        <td>3</td><td>1</td>
-    </tr>
-    <tr>
-        <td>1</td><td>2</td>
-    </tr>
-    <tr>
-        <td>2</td><td>8</td>
-    </tr>
-</table>
-
-<p>capturer une autre graine&nbsp;:</p>
+<p>puis en sème 9&nbsp;:</p>
 
 <table>
     <tr>
@@ -718,121 +739,163 @@ la règle de capture devient la suivante&nbsp;:</p>
         <td>4</td><td>1</td>
     </tr>
     <tr>
+        <td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>4</td>
+    </tr>
+</table>
+
+<p>puis en sème 3&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>5</td><td>2</td>
+    </tr>
+    <tr>
+        <td>4</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>4</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide de la rangée intérieure, donc Sud capture. Comme 
+    la rangée intérieure de Nord est vide, Sud capture dans la rangée intermédiaire de Nord&nbsp;:
+</p>
+<table>
+    <tr>
+        <td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>5</td><td>5</td>
+    </tr>
+    <tr>
+        <td>4</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>4</td>
+    </tr>
+</table>
+<p>puis sème 5 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>6</td><td></td>
+    </tr>
+    <tr>
+        <td>5</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>5</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide de la rangée intérieure. Sud capture donc en face. 
+    La rangée intérieure de Nord est vide et la rangée intermédiaire de Nord aussi est vide, donc Sud capture 
+    dans la rangée extérieure de Nord&nbsp;:
+</p>
+<table>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>9</td><td></td>
+    </tr>
+    <tr>
+        <td>5</td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>5</td>
+    </tr>
+</table>
+
+<p>puis sème 9 graines</p>
+<table>
+    <tr>
+        <td></td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td>
+    </tr>
+    
+    <tr>
         <td>1</td><td>2</td>
     </tr>
     <tr>
-        <td>2</td><td>8</td>
+        <td>6</td><td>2</td>
+    </tr>
+    <tr>
+        <td>5</td><td>7</td>
     </tr>
 </table>
 
-<p>semer les 4 graines&nbsp;:</p>
+<p>Il doit maintenant semer les 7 graines. Après avoir plusieurs fois recommencé à semer sans 
+    capture, Sud finira par arriver à cette situation&nbsp;:
+</p>
 
 <table>
     <tr>
-        <td>3</td><td>1</td>
+        <td></td><td>1</td>
     </tr>
     <tr>
-        <td></td><td>3</td>
+        <td></td><td></td>
     </tr>
     <tr>
         <td></td><td></td>
     </tr>
     
-    <tr>
-        <td></td><td>2</td>
-    </tr>
-    <tr>
-        <td>1</td><td>3</td>
-    </tr>
     <tr>
         <td>3</td><td>9</td>
-    </tr>
-</table>
-
-<p>semer les 3 graines&nbsp;:</p>
-
-<table>
-    <tr>
-        <td>3</td><td>1</td>
-    </tr>
-    <tr>
-        <td></td><td>3</td>
-    </tr>
-    <tr>
-        <td></td><td></td>
-    </tr>
-    
-    <tr>
-        <td>1</td><td>3</td>
     </tr>
     <tr>
         <td>2</td><td></td>
     </tr>
     <tr>
-        <td>3</td><td>9</td>
+        <td>3</td><td>4</td>
     </tr>
 </table>
 
-<p>La rangée intérieure de Nord étant vide, Sud peut capturer les 3 graines 
-    d'en face&nbsp;:
+<p>avec 4 graines à semer (en bas à droite). La dernière permettra de capturer la dernière graine de Nord 
+    et Sud gagne.
 </p>
-
-<table>
-    <tr>
-        <td>3</td><td>1</td>
-    </tr>
-    <tr>
-        <td></td><td></td>
-    </tr>
-    <tr>
-        <td></td><td></td>
-    </tr>
-    
-    <tr>
-        <td>1</td><td>6</td>
-    </tr>
-    <tr>
-        <td>2</td><td></td>
-    </tr>
-    <tr>
-        <td>3</td><td>9</td>
-    </tr>
-</table>
-
-<p>pour ensuite semer les 6 graines&nbsp;:</p>
-
-<table>
-    <tr>
-        <td>3</td><td>1</td>
-    </tr>
-    <tr>
-        <td></td><td></td>
-    </tr>
-    <tr>
-        <td></td><td></td>
-    </tr>
-    
-    <tr>
-        <td>2</td><td>1</td>
-    </tr>
-    <tr>
-        <td>3</td><td>1</td>
-    </tr>
-    <tr>
-        <td>4</td><td>10</td>
-    </tr>
-</table>
-
-<p>La dernière graine étant tombée dans une case vide, le tour de jeu de 
-    Sud s'arrête là, et c'est à Nord de jouer.
-</p>
-
-
-
-
-
-
-
 
 
 

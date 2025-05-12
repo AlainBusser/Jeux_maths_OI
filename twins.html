@@ -37,25 +37,30 @@
 <script>
 let sel1 = -1
 let sel2 = -1
-const autre = {"⚪︎":"⚫︎", "⚫︎":"⚪︎"}
-const other = {"A":"B", "B":"A"}
+//const autre = {"⚪︎":"⚫︎", "⚫︎":"⚪︎"}
+//const other = {"A":"B", "B":"A"}
 const di = (nom) => document.getElementById(nom)
 const go = function(i) {
     if (sel1 === -1) {
         sel1 = i
-        di("m"+i).style.backgroundColor = "red"
+        di("m"+i).style.color = "red"
+        di("m"+i).style.textShadow = "0 0 5px red"
     } else if (sel2 === -1) {
         sel2 = i
-        di("m"+i).style.backgroundColor = "red"
+        di("m"+i).style.color = "red"
+        di("m"+i).style.textShadow = "0 0 5px red"
         if (sel1 > sel2) [sel1, sel2] = [sel2, sel1]
         if (di("m"+sel2).innerHTML === "⚪︎") {
             di("m"+sel2).innerHTML = "⚫︎"
-            di("m"+sel1).innerHTML = autre[di("m"+sel1).innerHTML]
+            di("m"+sel1).innerHTML = (di("m"+sel1).innerHTML == "⚪︎") ? "⚫︎" : "⚪︎"
         }
         sel2 = -1
         sel1 = -1
-        for (let i=0; i<8; i++) di("m"+i).style.backgroundColor = ""
-        di("nj").innerHTML = other[di("nj").innerHTML]
+        for (let i=0; i<8; i++) {
+            di("m"+i).style.color = "black"
+            di("m"+i).style.textShadow = "0 0 0px black"
+        }
+        di("nj").innerHTML = (di("nj").innerHTML == "A") ? "B" : "A"
     }
 }
 

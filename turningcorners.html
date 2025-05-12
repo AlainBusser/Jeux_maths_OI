@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="twins.css">
+    <style>
+        table td {font-size: 24px; width: 32px;}
+        table {border-collapse: collapse;}
+    </style>
+    <title>⚫︎⚪︎turning corners⚪︎⚫︎</title>
+</head>    
+
+
+<body>
+<h1>Turning Corners</h1>
+
+<p>Les pièces sont bicolores (comme des jetons de <a href="https://fr.wikipedia.org/wiki/Othello_(jeu)">reversi</a>), le côté pile est blanc et le côté 
+    face est noir. Chacun son tour tourne quatre pièces en rectangle mais la pièce 
+    le plus en bas à droite doit obligatoirement passer de pile à face 
+    (c'est-à-dire qu'elle doit être blanche avant de la tourner). 
+    Le premier qui ne peut plus jouer a perdu. 
+</p>
+
+<table>
+    <tr>
+        <td id="m0n0" onclick="go(0,0)">⚪︎</td>
+        <td id="m0n1" onclick="go(0,1)">⚪︎</td>
+        <td id="m0n2" onclick="go(0,2)">⚪︎</td>
+        <td id="m0n3" onclick="go(0,3)">⚪︎</td>
+        <td id="m0n4" onclick="go(0,4)">⚪︎</td>
+        <td id="m0n5" onclick="go(0,5)">⚪︎</td>
+        <td id="m0n6" onclick="go(0,6)">⚪︎</td>
+        <td id="m0n7" onclick="go(0,7)">⚪︎</td>
+    </tr>
+    <tr>
+        <td id="m1n0" onclick="go(1,0)">⚪︎</td>
+        <td id="m1n1" onclick="go(1,1)">⚪︎</td>
+        <td id="m1n2" onclick="go(1,2)">⚪︎</td>
+        <td id="m1n3" onclick="go(1,3)">⚪︎</td>
+        <td id="m1n4" onclick="go(1,4)">⚪︎</td>
+        <td id="m1n5" onclick="go(1,5)">⚪︎</td>
+        <td id="m1n6" onclick="go(1,6)">⚪︎</td>
+        <td id="m1n7" onclick="go(1,7)">⚪︎</td>
+    </tr>
+    <tr>
+        <td id="m2n0" onclick="go(2,0)">⚪︎</td>
+        <td id="m2n1" onclick="go(2,1)">⚪︎</td>
+        <td id="m2n2" onclick="go(2,2)">⚪︎</td>
+        <td id="m2n3" onclick="go(2,3)">⚪︎</td>
+        <td id="m2n4" onclick="go(2,4)">⚪︎</td>
+        <td id="m2n5" onclick="go(2,5)">⚪︎</td>
+        <td id="m2n6" onclick="go(2,6)">⚪︎</td>
+        <td id="m2n7" onclick="go(2,7)">⚪︎</td>
+    </tr>
+    <tr>
+        <td id="m3n0" onclick="go(3,0)">⚪︎</td>
+        <td id="m3n1" onclick="go(3,1)">⚪︎</td>
+        <td id="m3n2" onclick="go(3,2)">⚪︎</td>
+        <td id="m3n3" onclick="go(3,3)">⚪︎</td>
+        <td id="m3n4" onclick="go(3,4)">⚪︎</td>
+        <td id="m3n5" onclick="go(3,5)">⚪︎</td>
+        <td id="m3n6" onclick="go(3,6)">⚪︎</td>
+        <td id="m3n7" onclick="go(3,7)">⚪︎</td>
+    </tr>
+    <tr>
+        <td id="m4n0" onclick="go(4,0)">⚪︎</td>
+        <td id="m4n1" onclick="go(4,1)">⚪︎</td>
+        <td id="m4n2" onclick="go(4,2)">⚪︎</td>
+        <td id="m4n3" onclick="go(4,3)">⚪︎</td>
+        <td id="m4n4" onclick="go(4,4)">⚪︎</td>
+        <td id="m4n5" onclick="go(4,5)">⚪︎</td>
+        <td id="m4n6" onclick="go(4,6)">⚪︎</td>
+        <td id="m4n7" onclick="go(4,7)">⚪︎</td>
+    </tr>
+    <tr>
+        <td id="m5n0" onclick="go(5,0)">⚪︎</td>
+        <td id="m5n1" onclick="go(5,1)">⚪︎</td>
+        <td id="m5n2" onclick="go(5,2)">⚪︎</td>
+        <td id="m5n3" onclick="go(5,3)">⚪︎</td>
+        <td id="m5n4" onclick="go(5,4)">⚪︎</td>
+        <td id="m5n5" onclick="go(5,5)">⚪︎</td>
+        <td id="m5n6" onclick="go(5,6)">⚪︎</td>
+        <td id="m5n7" onclick="go(5,7)">⚪︎</td>
+    </tr>
+    <tr>
+        <td id="m6n0" onclick="go(6,0)">⚪︎</td>
+        <td id="m6n1" onclick="go(6,1)">⚪︎</td>
+        <td id="m6n2" onclick="go(6,2)">⚪︎</td>
+        <td id="m6n3" onclick="go(6,3)">⚪︎</td>
+        <td id="m6n4" onclick="go(6,4)">⚪︎</td>
+        <td id="m6n5" onclick="go(6,5)">⚪︎</td>
+        <td id="m6n6" onclick="go(6,6)">⚪︎</td>
+        <td id="m6n7" onclick="go(6,7)">⚪︎</td>
+    </tr>
+    <tr>
+        <td id="m7n0" onclick="go(7,0)">⚪︎</td>
+        <td id="m7n1" onclick="go(7,1)">⚪︎</td>
+        <td id="m7n2" onclick="go(7,2)">⚪︎</td>
+        <td id="m7n3" onclick="go(7,3)">⚪︎</td>
+        <td id="m7n4" onclick="go(7,4)">⚪︎</td>
+        <td id="m7n5" onclick="go(7,5)">⚪︎</td>
+        <td id="m7n6" onclick="go(7,6)">⚪︎</td>
+        <td id="m7n7" onclick="go(7,7)">⚪︎</td>
+    </tr>
+</table>
+
+<h4>C'est au joueur <strong id="nj">A</strong> de tourner quatre pièces.</h4>
+
+<script>
+let sel1 = [-1,-1]
+let sel2 = [-1,-1]
+//const autre = {"⚪︎":"⚫︎", "⚫︎":"⚪︎"}
+//const other = {"A":"B", "B":"A"}
+const di = (nom) => document.getElementById(nom)
+const go = function(i,j) {
+    if (sel1.toString() === "-1,-1") {
+        sel1 = [i,j]
+        di("m"+i+"n"+j).style.color = "red"
+        di("m"+i+"n"+j).style.textShadow = "0 0 5px red"
+    } else if (sel2.toString() === "-1,-1") {
+        sel2 = [i,j]
+        di("m"+i+"n"+j).style.color = "red"
+        di("m"+i+"n"+j).style.textShadow = "0 0 5px red"
+        if (sel1[0] > sel2[0]) [sel1, sel2] = [sel2, sel1]
+        if (sel1[0]<sel2[0] && sel1[1]<sel2[1] && di("m"+sel2[0]+"n"+sel2[1]).innerHTML === "⚪︎") {
+            di("m"+sel2[0]+"n"+sel2[1]).innerHTML = "⚫︎"
+            di("m"+sel2[0]+"n"+sel1[1]).innerHTML = (di("m"+sel2[0]+"n"+sel1[1]).innerHTML == "⚪︎") ? "⚫︎" : "⚪︎"
+            di("m"+sel1[0]+"n"+sel2[1]).innerHTML = (di("m"+sel1[0]+"n"+sel2[1]).innerHTML == "⚪︎") ? "⚫︎" : "⚪︎"
+            di("m"+sel1[0]+"n"+sel1[1]).innerHTML = (di("m"+sel1[0]+"n"+sel1[1]).innerHTML == "⚪︎") ? "⚫︎" : "⚪︎"
+        di("nj").innerHTML = (di("nj").innerHTML == "A") ? "B" : "A"
+        }
+        sel2 = [-1,-1]
+        sel1 = [-1,-1]
+        for (let i=0; i<8; i++) {
+            for (let j=0; j<8; j++) {
+                di("m"+i+"n"+j).style.color = "black"
+                di("m"+i+"n"+j).style.textShadow = "0 0 0px black"
+            }
+        }
+    }
+}
+
+</script>
+
+
+
+
+
+</body></html>

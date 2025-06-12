@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="sowing.css">
+    <title>multitchoukatro</title>
+</head>    
+
+
+<body>
+
+<h1>Multitchoukatro</h1>
+
+<h2>Histoire de ce jeu</h2>
+
+
+<p>Vers la fin du XX<sup>e</sup> siècle, <a href="https://fr.wikipedia.org/wiki/%C3%89douard_Lucas">Édouard Lucas</a>, 
+    probablement inspiré par le jeu asiatique <i>chungka</i> (lequel, dans les Maldives, s'appelle 
+    <a href="https://ludii.games/details.php?keyword=Ovalhu">ovalhu</a>),  
+    a inventé une version solitaire du chungka, appelée <em>tchouka</em>.
+</p>
+<p>En 1895, <a href="https://fr.wikipedia.org/wiki/Henri_Auguste_Delannoy">Henri Delannoy</a> 
+publie dans <i>l'intermédiaire des mathématiciens</i> une description de 
+ce jeu, sous forme de problème à résoudre.</p>
+<p>En 1905, <a href="https://fr.wikipedia.org/wiki/Pierre_Flye_Sainte-Marie">Flye Sainte-Marie</a> 
+publie, dans la même revue, la solution du jeu de la Tchouka.</p>
+<p>En 1929, <a href="https://fr.wikipedia.org/wiki/Andr%C3%A9_Sainte-Lagu%C3%AB">André Sainte-Laguë</a>,
+ dans un livre titré <i>Géométrie de situation et jeux</i>, décrit certains 
+jeux dont celui de la Tchouka (qu'il croit être d'origine russe) et 
+propose deux paramètres&nbsp;: le nombre de cases (autres que la rouma) et 
+le nombre de graines par case (par défaut, la moitié du paramètre précédent).</p>
+<p>En 1977, dans le livre <i>Wari et Solo, les jeux de calcul africains</i>, 
+André Deledicq et Assia Popova évoquent brièvement le jeu de la Tchouka 
+(en lui attribuant une origine paléo-sibérienne). Dans le même 
+livre, Véronique Gautheron décrit plus en détail le jeu de la Tchouka, 
+mais aussi des jeux qu'elle a créés&nbsp;:</p>
+<ul>
+    <li><i>tchoukaillon</i>, où tout semis doit aller directement dans la rouma (c'est un jeu en solitaire),</li>
+    <li><i>monokalah</i>, où les semis finissent dans la rouma mais 
+    peuvent faire plusieurs fois le tour du plateau de jeu,</li>
+    <li><i>multitchouka</i>, où on resème la case d'arrivée si celle-ci 
+    n'était pas vide, ce qui revient au jeu de la tchouka, à ceci près 
+qu'il n'y a pas forcément le même nombre de graines dans chaque case.</li>
+</ul>
+<p>Véronique Gautheron transforme alors le jeu de la Tchouka en un 
+    jeu à deux joueuses&nbsp;: si la dernière graine tombe dans une case vide, 
+    le jeu n'est pas perdu, c'est seulement la fin du tour. On 
+    constate une ressemblance avec le jeu malgache <a href="bevohoka.html">katro bevohoka</a>, 
+    à ceci près que les deux joueuses sèment sur le même plateau.
+</p>
+<p>Véronique Gautheron ne donne qu'une description rapide de multitchouka, 
+    et évoque l'idée que chaque joueuse ait sa propre rouma (comme dans 
+    <a href="chungkala.html">chungkala</a>) et que le gagnant soit 
+    celui qui a le plus de graines dans sa rouma à la fin du jeu. 
+    Mais ceci éloigne quelque peu le jeu de l'idée d'une tchouka à 
+    deux joueuses, et je propose la fin du jeu façon Conway, où 
+    <i>le premier qui ne peut plus jouer a perdu</i>. Le résultat, 
+    qui est légèrement différent de multitchouka, et ressemble au 
+    katro, s'appelle donc <i>multitchoukatro</i>.
+</p>
+
+<h2>Règle du jeu</h2>
+
+<p>Le jeu se joue sur un plateau à deux rangées, ressemblant à ceci&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint6">
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+            
+        </td>
+    </tr>
+</table>
+
+<p>La case tout à droite est appelée <i>la rouma</i>. Il n'y en a 
+qu'une, commune aux deux joueuses. Avant de jouer, la rouma est vide, 
+mais on place dans chacune des autres cases un certain nombre de graines 
+(ici, 3)&nbsp;:</p>
+
+
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td><td>3</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+            
+        </td>
+    </tr>
+</table>
+
+<h3>Semis élémentaire</h3>
+
+<p>Les graines se sèment une par une, dans le sens giratoire, selon 
+    la numérotation suivante&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>3</td><td>2</td><td>1</td>
+    </tr>
+    <tr>
+        <td>4</td><td>5</td><td>6</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">
+            
+        </td>
+    </tr>
+</table>
+<p>On commence par la case 1, puis on sème dans la case 2, puis dans 
+    la case 3, puis dans la case 4, puis dans la case 5, puis dans la 
+    case 6, et enfin dans la rouma. On recommence à partir de la case 1. 
+On peut semer depuis n'importe quelle case autre que la rouma. Par 
+exemple, à partir de la situation initiale où il y a 3 graines par case, 
+en semant depuis la case en bas à gauche, on obtient ceci&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td>4</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">1
+            
+        </td>
+    </tr>
+</table>
+
+<p>(le tour de jeu n'est pas terminé, il s'agissait juste d'un semis 
+    élémentaire&nbsp;; un tour de jeu peut être fait de plusieurs semis
+     élémentaires)</p>
+
+<p>Voici un autre exemple, toujours à partir de la situation initiale 
+    où il y a 3 graines par case, mais cette fois-ci en semant depuis la 
+    case en bas à droite. Dans ce cas on continue à semer après avoir 
+    dépassé la rouma, en recommençant par la case en haut à droite&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>3</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">1
+            
+        </td>
+    </tr>
+</table>
+
+<h3>Succession de semis élémentaires</h3>
+
+<p>Un tour de jeu est constitué de semis élémentaires enchaînés de la manière 
+    suivante&nbsp;:
+</p>
+
+<ul>
+    <li>Si la dernière graine d'un semis élémentaire tombe dans une 
+        case non vide (autre que la rouma), on recommence un semis élémentaire depuis cette case. Par 
+        exemple, depuis la situation précédente où la dernière graine 
+        était tombée dans la case en haut au milieu, on sème les 4 
+        graines de cette case, ce qui donne&nbsp;:
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>4</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">1
+            
+        </td>
+    </tr>
+</table>
+    
+    </li>
+    <li>Si la dernière graine d'un semis élémentaire tombe dans 
+        une case vide (comme c'était le cas ci-dessus), le tour de 
+        jeu est terminé&nbsp;: c'est à l'adversaire de jouer. Par 
+        contre si, lorsqu'on resème, la dernière graine tombe dans 
+        une case non vide, on re-resème, et ainsi de suite (un tour de 
+        jeu peut durer longtemps).  
+
+    </li>
+    <li>Si la dernière graine d'un semis élémentaire tombe dans la rouma, 
+        on rejoue&nbsp;: on choisit une case non vide (autre que la rouma) 
+        et on recommence un semis élémentaire depuis cette case.
+    </li>
+</ul>
+
+<h3>But du jeu</h3>
+
+<p>La joueuse qui place la dernière graine dans la rouma, gagne le jeu.</p>
+
+<h2>Exemple de partie</h2>
+
+<p>Les deux joueuses s'appellent <i>Sud</i> et <i>Nord</i>. C'est 
+Sud qui joue en premier. Elle décide de semer la case en bas à gauche 
+car cela lui permet de rejouer, la dernière graine de ce semis 
+élémentaire étant tombée dans la rouma&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td>4</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">1
+            
+        </td>
+    </tr>
+</table>
+
+<p>Sud choisit alors de jouer la case qui est en haut au milieu&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>4</td><td></td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>5</td><td>4</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">1
+            
+        </td>
+    </tr>
+</table>
+
+<p>La dernière graine de ce semis élémentaire étant tombée dans une 
+    case non vide (elle contient maintenant 5 graines), Sud sème 
+    ces 5 graines&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>5</td><td>1</td><td>4</td>
+    </tr>
+    <tr>
+        <td>1</td><td></td><td>5</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">2
+            
+        </td>
+    </tr>
+</table>
+
+<p>Comme la dernière graine est tombée dans une case non vide 
+    (actuellement 5 graines), Sud sème ces 5 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>1</td><td>5</td>
+    </tr>
+    <tr>
+        <td>2</td><td>1</td><td>6</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">3
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis 5 graines à nouveau&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>1</td><td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>3</td><td>2</td><td>7</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">3
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis 7 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>2</td><td>3</td><td>1</td>
+    </tr>
+    <tr>
+        <td>4</td><td>3</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">4
+            
+        </td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case qui était vide 
+    (en bas à droite&nbsp;; elle contient maintenant 1 graine), 
+    le tour de jeu est terminé, c'est au tour de Nord de jouer. 
+    Elle choisit de semer la case en bas à gauche (4 graines)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>2</td><td>3</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td>2</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">5
+            
+        </td>
+    </tr>
+</table>
+
+<p>Elle doit alors semer les 2 graines en haut à droite&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>3</td><td>4</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>4</td><td>2</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">5
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis les 3 graines en haut à gauche&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>4</td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>5</td><td>3</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">5
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis 3 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>5</td><td>1</td>
+    </tr>
+    <tr>
+        <td>1</td><td>5</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">6
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis 5 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>1</td><td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>2</td><td>6</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">7
+            
+        </td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans la rouma, Nord rejoue 
+    donc. Elle choisit la graine en bas à droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>1</td><td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>2</td><td>6</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">8
+            
+        </td>
+    </tr>
+</table>
+
+<p>Mais du coup, la (dernière) graine du semis élémentaire est 
+    à nouveau tombée dans la rouma, elle rejoue donc
+    encore, et choisit la case en haut à gauche&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>3</td><td>6</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">8
+            
+        </td>
+    </tr>
+</table>
+
+<p>La (dernière) graine est tombée dans une case non vide 
+    (en bas à gauche), Nord sème ces 3 graines&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>7</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">9
+            
+        </td>
+    </tr>
+</table>
+
+<p>La dernière de ces 3 graines est tombée dans la rouma, c'est 
+    donc encore à Nord de jouer. Elle choisit la case en bas à 
+    droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td>1</td>
+    </tr>
+    <tr>
+        <td></td><td>7</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">10
+            
+        </td>
+    </tr>
+</table>
+
+<p>Une fois de plus, la dernière graine est tombée dans la rouma, 
+    et c'est donc encore à Nord de jouer. Elle choisit la case en 
+    bas au milieu&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>1</td><td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">11
+            
+        </td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case jusqu'alors vide, 
+    donc le tour de jeu est (enfin) terminé, c'est à Sud de jouer. 
+    On constate qu'à ce stade, chaque joueuse n'a joué qu'un 
+    tour de jeu.
+</p>
+
+<h3>Second tour de jeu</h3>
+
+<p>Sud sème la graine en bas à droite, pour finir dans la rouma&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>1</td><td>1</td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">12
+            
+        </td>
+    </tr>
+</table>
+
+<p>Elle rejoue, en semant la graine en haut au milieu&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>2</td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>1</td><td>1</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">12
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis celles en haut à droite&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">12
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis celles en bas au milieu&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">13
+            
+        </td>
+    </tr>
+</table>
+
+<p>ce qui lui permet de rejouer, la dernière graine étant tombée 
+    dans la rouma. Elle choisit de semer la case en bas à
+    droite, qui contient 1 graine&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">14
+            
+        </td>
+    </tr>
+</table>
+
+<p>La dernière graine étant tombée dans la rouma, Sud rejoue, en 
+    semant les deux graines en haut à droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>1</td><td>1</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">14
+            
+        </td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée (en haut à gauche) dans une 
+    case qui était jusqu'alors vide, et c'est donc à Nord de jouer. 
+    Elle choisit de semer la case en haut à gauche, qui contient
+    1 graine&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>1</td><td></td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">14
+            
+        </td>
+    </tr>
+</table>
+
+<p>Elle doit donc rejouer, en semant les 3 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>1</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>1</td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">15
+            
+        </td>
+    </tr>
+</table>
+
+<p>ce qui lui permet de rejouer, la dernière graine étant tombée 
+    dans la rouma. Elle sème la graine en bas à droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>1</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>1</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">16
+            
+        </td>
+    </tr>
+</table>
+
+<p>ce qui lui permet de rejouer. Elle choisit la graine en 
+    bas&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>1</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">16
+            
+        </td>
+    </tr>
+</table>
+
+<p>La (dernière) graine est tombée dans une case vide, donc le tour de 
+    jeu de Nord est fini. On remarque qu'alors que le jeu est bien 
+    avancé, chaque joueuse n'a joué que deux tours.
+</p>
+
+<h3>Troisième tour de jeu</h3>
+
+<p>Sud sème la graine en bas à droite&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td>1</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">17
+            
+        </td>
+    </tr>
+</table>
+
+<p>qui tombe dans la rouma, et Sud rejoue&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td>1</td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">17
+            
+        </td>
+    </tr>
+</table>
+
+<p>C'est à Nord de jouer&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">17
+            
+        </td>
+    </tr>
+</table>
+
+<h3>Quatrième tour de jeu</h3>
+
+<p>Sud joue&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>1</td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">17
+            
+        </td>
+    </tr>
+</table>
+
+<p>puis Nord&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>1</td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">17
+            
+        </td>
+    </tr>
+</table>
+
+<h3>Cinquième tour de jeu</h3>
+
+<p>Sud joue&nbsp;:</p>
+
+<table>
+    <tr>
+        <td style="background:none;">
+<table class="tabint3">
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td>
+    </tr>
+</table>
+    </td>
+        <td class="reserve">18
+            
+        </td>
+    </tr>
+</table>
+
+<p>Sud vient de mettre la dernière graine dans la rouma, ce qui 
+    fait d'elle la gagnante de cette partie.
+</p>
+
+
+
+
+
+</body></html>

@@ -1,0 +1,50 @@
+/*
+ * Sowing.cgs
+ *
+ * Sowing is a combinatorial game created by J.H.Conway
+ * in the 1990s to show an example of so-called mancala
+ * (or sowing) game which leads to computable values.
+ * Two players are facing, a board having the shape of a
+ * strip between them. Each player in turn chooses a
+ * nonempy cell, takes all the seeds contained in this
+ * cell and sows them, one by one, in the following
+ * cells. Each player sows from her left to her right
+ * (which means Left sows from left to right, and
+ * Right sows from right to left).
+ * If the last seed falls into an empty cell (or out of
+ * the board), the player looses.
+ */
+
+singleton class Sowing extends Ruleset
+
+  class Position(strip) extends Game
+
+    override def Options(player as Player) begin
+
+      var direction := { Left => 1, Right => -1 };
+      var int := { true => 1, false => 0 };
+
+      for n from 1 to strip.Length
+
+        where strip[n] > 0
+                and n+direction[player]*strip[n] > 0
+                and n+direction[player]*strip[n] <= strip.Length
+                and strip[n+direction[player]*strip[n]] > 0
+
+/*          var t := strip;
+*          for i from n+direction[player] to n+direction[player]*strip[n] by direction[player] do
+*            t:= t.Updated(i,strip[i]+1)
+*          end
+*/
+
+        yield Position([(strip[i]+int[direction[player]>0]*int[i>n and i<n+strip[n]+1]+int[direction[player]<0]*int[i<n and i>n-strip[n]-1])*(1-int[i==n]) for i from 1 to strip.Length])
+
+      end
+
+    end
+
+  end
+
+  def Eval(strip) := Position(strip);
+
+end

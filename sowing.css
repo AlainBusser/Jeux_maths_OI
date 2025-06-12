@@ -3,6 +3,12 @@ table {
     background: rgb(160,96,64);
     box-shadow: 8px 5px 13px gray;
 }
+.tabint3 {
+    width: 240px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+}
 .tabint4 {
     width: 320px;
     border: none;

@@ -1,0 +1,53 @@
+(game "Lewthwaite" 
+    (players 2) 
+    (equipment { 
+        (board (square <Board:size>)) 
+        (piece "Ball" Each)
+    }) 
+    
+    (rules 
+        (start {
+			(place "Ball1" (sites Phase 1))
+			(place "Ball2" (difference (sites Phase 0) (sites Centre)))
+		})
+		(play (forEach Piece "StepOrthogonalToEmpty"))
+        (end (if (no Moves Mover) (result Mover Loss))) 
+    )
+)
+
+//------------------------------------------------------------------------------
+
+(option "Board" <Board> args:{<size>}
+	{
+		(item "3" <3> "9 cells")
+		(item "5" <5> "25 cells")***
+		(item "7" <7> "49 cells")
+		(item "9" <9> "81 cells")
+		(item "11" <11> "121 cells")
+		(item "13" <13> "169 cells")
+		(item "15" <15> "225 cells")
+	}
+)
+
+//------------------------------------------------------------------------------
+
+(metadata 
+    
+    (info
+        {
+        (description "Game created by G.W. Lewthwaite around 1970. Martin Gardner gave a winning strategy for second player.")
+        (rules "5x5 board. Twelve pieces per player. Players alternate turns moving one space orthogonally to an empty space. A player wins when the opponent cannot move.")
+        (source "Berlekamp, Conway, Guy 1999")
+        (version "1.0.0")
+        (classification "board/space/blocking")
+        (credit "Alain Busser")
+        (origin "Lewthwaite 1970")
+        }
+    )
+    
+    (graphics {
+        (board Style Chess)
+    })
+    
+)
+

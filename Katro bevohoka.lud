@@ -1,0 +1,99 @@
+(define "Columns" <Board:rowSize>)
+
+//------------------------------------------------------------------------------
+
+(game "Katro bevohoka" 
+    (players 2) 
+    
+    (equipment { 
+        (mancalaBoard 4 "Columns" store:None
+            { 
+            (track "TrackCCW1" "0,E,N1,W" loop:True P1)
+            (track "TrackCCW2" <Board:CCW2> loop:True P2)
+            }
+        )
+        (regions "Home" P1 (sites Track "TrackCCW1")) // P1 Home
+        (regions "Home" P2 (sites Track "TrackCCW2")) // P2 home
+        (regions "Outer" P1 (sites Bottom))   // P1 outer Home
+        (regions "Outer" P2 (sites Top))    // P2 outer Home
+        (piece "Seed" Shared)
+        (hand Each)
+    }) 
+    (rules 
+        
+        (start (set Count 2 to:(union (sites P1 "Home") (sites P2 "Home"))))
+        
+        (play
+                (if (!= (value Player Mover) 2)
+                    (move Select
+                        (from 
+                            (if 
+                                ("SameTurn") 
+                                (sites {(var "Replay")})
+                                (sites Mover "Home") 
+                            ) 
+                            if:(> (count at:(from)) 0)
+                        )
+                        (then
+                            (and
+                                (sow
+                                    "TrackCCW"
+                                    owner:(mover)
+                                    apply:(if (< 1 (count at:(to)))
+                                             (and
+                                                (moveAgain)
+                                                (set Var "Replay" (to))
+                                            )
+                                    )
+                                )
+                                (if (!= (value Player Mover) 1)
+                                    (set Value Mover 1)
+                                )
+                            )
+                        )
+                    )
+                )
+                
+        )
+        
+        (end (if (= (count Sites in:(difference (sites Mover) (sites Empty))) 1)
+                 (result Mover Win)
+                )
+        )
+    )
+)
+
+//------------------------------------------------------------------------------
+
+(option "Board Size" <Board> args:{ <rowSize> <CCW2> }
+    {
+    (item "2" <2> <"4,E,N1,W"> "Each player has 2 holes on each row.") 
+    (item "3" <3> <"6,E,N1,W"> "Each player has 3 holes on each row.") 
+    (item "4" <4> <"8,E,N1,W"> "Each player has 4 holes on each row.")* 
+    (item "5" <5> <"10,E,N1,W"> "Each player has 5 holes on each row.") 
+    (item "6" <6> <"12,E,N1,W"> "Each player has 6 holes on each row.")** 
+    (item "8" <8> <"16,E,N1,W"> "Each player has 8 holes on each row.") 
+    (item "10" <10> <"20,E,N1,W"> "Each player has 10 holes on each row.") 
+})
+
+//------------------------------------------------------------------------------
+
+(metadata 
+    
+    (info
+        {
+        (description "Katro bevohoka is a four-row mancala-style game board played in the highlands of Madagascar, by children. It is meant to train children to sow seeds, in order to learn katro afterwards.")
+        (rules "4x6 holes. Two counters in each hole. Sowing begins from any hole on the player's side, counterclockwise. If the final counter lands in an empty hole, the turn ends. If the final counter lands in an occupied hole, these are picked up and sowing continues. The first player who manages to have all his counters in only one hole is the winner.")
+        (source "Tiennot, Luc. Private communication.")
+        (version "0.0.1")
+        (classification "board/sow/four rows")
+        (credit "Alain Busser")
+        }
+    )
+    
+    (graphics {
+        (board Style Mancala)
+    })
+    
+)
+

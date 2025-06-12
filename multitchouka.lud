@@ -1,0 +1,125 @@
+(define "Columns" <Board:rowSize>)
+(define "Ruma" <Board:R1>)
+(define "WasInStore" (is Pending))
+(define "LastCounterInTheStore" (set Pending))
+(define "SowingEndInMyStore" (= (to) "Ruma"))
+(define "LastHoleSowed" (sites {(var)}))
+(define "StoreLastHoleSowed" (set Var (to)))
+
+//------------------------------------------------------------------------------
+
+(game "Multitchouka" 
+    (players 2) 
+    
+    (equipment { 
+        (mancalaBoard 2 "Columns" 
+            { 
+            (track "TrackCCW" "1,E,ENE,WNW,W" loop:True)
+            }
+        )
+        (regions "Home" Shared (sites Track "TrackCCW")) // P1 Home
+        (piece "Seed" Shared)
+    }) 
+    (rules 
+        
+        (start 
+            {
+            (set Count <Seeds:number> to:(difference (sites "Home") "Ruma" ))
+            }
+        )
+        (play
+            (move Select
+                (from 
+                    (if 
+                        (and 
+                            ("SameTurn") 
+                            (not ("WasInStore"))
+                        ) 
+                        "LastHoleSowed" 
+                        (difference
+                            (sites "Home")
+                            "Ruma"
+                        )
+                    )
+                    if:(< 0 (count at:(from)))
+                )
+                (then
+                    (sow
+                        "TrackCCW"
+                        apply:
+                        (if ("SowingEndInMyStore")
+                            (and
+                                (moveAgain)
+                                ("LastCounterInTheStore")
+                            )
+                            (if (> (count at:(to)) 1)
+                                (and
+                                    (moveAgain)
+                                    ("StoreLastHoleSowed")
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+        
+        (end (if (= (count Sites in:(difference (sites "Home") (sites Empty))) 1)
+                (result Mover Win)
+            )
+        )
+    )
+)
+
+//------------------------------------------------------------------------------
+
+(option "Board Size" <Board> args:{ <rowSize> <R1> }
+    {
+    (item "2" <2> <5>  "2 holes on each row.") 
+    (item "3" <3> <7>  "3 holes on each row.") 
+    (item "4" <4> <9>  "4 holes on each row.")** 
+    (item "5" <5> <11>  "5 holes on each row.") 
+    (item "6" <6> <13>  "6 holes on each row.")*** 
+    (item "7" <7> <15>  "7 holes on each row.") 
+    (item "8" <8> <17>  "8 holes on each row.")* 
+    (item "9" <9>  <19>  "9 holes on each row.") 
+    (item "10" <10> <21>  "10 holes on each row.") 
+})
+
+(option "Seeds" <Seeds> args: { <number> }
+	{
+		(item "1" <1> "one seed per hole")
+		(item "2" <2> "two seeds per hole")***
+		(item "3" <3> "three seeds per hole")
+		(item "4" <4> "four seeds per hole")****
+		(item "5" <5> "five seeds per hole")
+		(item "6" <6> "six seeds per hole")**
+		(item "7" <7> "seven seeds per hole")
+		(item "8" <8> "eight seeds per hole")
+	}
+)
+
+//------------------------------------------------------------------------------
+
+(metadata 
+    
+    (info
+        {
+        (description "Multitchouka is a two-row mancala-style game board invented by Veronique Gautheron in 1977. This is the normal play version where the first player who is unable to sow looses")
+        (rules "2xn holes plus the ruma (at the right). Two counters in each hole, except the Ruma (initially empty). Sowing begins from any non empty hole except the ruma, counterclockwise. If the final counter lands in an empty hole other than the ruma, the turn ends. If the final counter lands in an occupied hole, these are picked up and sowing continues. If the last seed falls into the ruma, one replays. The first player who manages to have all the counters in the ruma is the winner.")
+        (version "1.0.0")
+        (classification "board/sow/two rows")
+        (author "Veronique Gautheron")
+        (credit "Alain Busser")
+        (date "1977")
+        }
+    )
+    
+    (graphics {
+        (board Style Mancala)
+//        (show AsHoles {0 } Square)
+    })
+    
+)
+
+

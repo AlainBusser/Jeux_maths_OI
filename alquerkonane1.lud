@@ -1,0 +1,102 @@
+(game "alquerkonane"
+    ("TwoPlayersNorthSouth")
+    (equipment
+        {
+         (board (rectangle <Rows:num> <Columns:num>)) 
+            (piece "Fish"
+                P1
+                (or
+                    (move Step (directions { BL BR }) (to if:(is Empty (to))))
+                    (move
+                        Hop
+                        (between
+                            if:(is Enemy (who at:(between)))
+                            (apply (remove (between)))
+                        )
+                        (to if:(is Empty (to)))
+                    )
+                )
+            )
+            (piece "Goose"
+                P2
+                (or
+                    (move Step (directions { BL BR }) (to if:(is Empty (to))))
+                    (move
+                        Hop
+                        (between
+                            if:(is Enemy (who at:(between)))
+                            (apply (remove (between)))
+                        )
+                        (to if:(is Empty (to)))
+                    )
+                )
+            )
+            (regions "Home" P1 (expand (sites Top) steps:1))
+            (regions "Home" P2 (expand (sites Bottom) steps:1))
+        }
+    )
+    (rules
+        (start
+            {
+                (place
+                    "Goose2"
+                    (intersection
+                        (sites Phase 0)
+                        (expand (sites Bottom) steps:1)
+                    )
+                )
+                (place
+                    "Fish1"
+                    (intersection
+                        (sites Phase 1)
+                        (expand (sites Top) steps:1)
+                    )
+                )
+            }
+        )
+        (play (forEach Piece))
+        (end (if (no Moves Next) (result Mover Win)))
+    )
+)
+
+(option "Rows" <Rows> args:{ <num> }
+    {
+    (item "2" <2> "The board has 2 rows.") 
+    (item "3" <3> "The board has 3 rows.") 
+    (item "4" <4> "The board has 4 rows.")* 
+    (item "5" <5> "The board has 5 rows.") 
+    (item "6" <6> "The board has 6 rows.")** 
+    (item "7" <7> "The board has 7 rows.") 
+    (item "8" <8> "The board has 8 rows.")* 
+    (item "9" <9> "The board has 9 rows.") 
+    (item "10" <10> "The board has 10 rows.") 
+    }
+)
+(option "Columns" <Columns> args:{ <num> }
+    {
+    (item "2" <2> "The board has 2 columns.") 
+    (item "3" <3> "The board has 3 columns.") 
+    (item "4" <4> "The board has 4 columns.")** 
+    (item "5" <5> "The board has 5 columns.") 
+    (item "6" <6> "The board has 6 columns.")* 
+    (item "7" <7> "The board has 7 columns.") 
+    (item "8" <8> "The board has 8 columns.")* 
+    (item "9" <9> "The board has 9 columns.") 
+    (item "10" <10> "The board has 10 columns.") 
+    }
+)
+
+
+(metadata
+    (graphics (board  Style Chess))
+    (ai
+		(bestAgent "AlphaBeta")
+		(heuristics
+			{
+				(influenceAdvanced weight:0.3)
+				(material weight:0.5)
+				(ownRegionsCount weight:0.2)
+			}
+		)
+    )
+)

@@ -1,0 +1,94 @@
+(define "Columns" <Ncols:nc>)
+
+(define "PiecesOwnedBy" (count at:(mapEntry #1)) )
+
+//------------------------------------------------------------------------------
+
+(game "Chongkala" 
+    (players 2) 
+    
+    (equipment { 
+        (mancalaBoard 2 "Columns"
+            (track "Track" "0,ESE,E,ENE,WNW,N,W" loop:True)
+        )
+        (regions P1 (sites Bottom))      // P1 home
+        (regions P2 (sites Top))      // P2 home
+        (map {(pair P1 LastSite) (pair P2 FirstSite)}) // kalahs (storage pits)
+        (piece "Seed" Shared)
+    }) 
+    (rules 
+        
+        (start (set Count <Nseeds:ns> to:(union (sites P1) (sites P2))))
+        
+        (play (move Select 
+                (from 
+                    (sites Mover) 
+                    if:(> (count at:(from)) 0)
+                ) 
+                (then 
+                    (sow
+                        apply:(if (= (to) (mapEntry (mover)))
+                            (moveAgain)
+                            
+                        )
+                        skipIf:(= (to) (mapEntry (next)))
+                    )
+                )
+            )
+        )
+        
+        (end ("MancalaByScoreWhen" (no Moves Mover)))
+    )
+)
+
+//------------------------------------------------------------------------------
+
+(option "columns" <Ncols> args:{<nc>}
+	{
+		(item "2" <2> "2 columns")** 
+		(item "3" <3> "3 columns") 
+		(item "4" <4> "4 columns")** 
+		(item "5" <5> "5 columns") 
+		(item "6" <6> "6 columns")*** 
+		(item "7" <7> "7 columns") 
+		(item "8" <8> "8 columns") 
+	}
+)
+(option "seeds" <Nseeds> args:{<ns>}
+	{
+		(item "1" <1> "1 seed per hole") 
+		(item "2" <2> "2 seeds per hole")** 
+		(item "3" <3> "3 seeds per hole") 
+		(item "4" <4> "4 seeds per hole")*** 
+		(item "5" <5> "5 seeds per hole") 
+		(item "6" <6> "6 seeds per hole") 
+		(item "7" <7> "7 seeds per hole") 
+		(item "8" <8> "8 seeds per hole") 
+	}
+)
+
+//------------------------------------------------------------------------------
+
+(metadata 
+    
+    (info
+        {
+        (description "Kalah is a mancala-style game by William Julius Champion, which is a simplified Chungka. This simplified version of the simplified game does not include captures.")
+        (rules "The board has two rows of n holes with a larger hole on either end. Play begins with an equal number of seeds in each hole. Each player controls the row nearest them. Seeds are sown consecutively in a counterclockwise pattern including the player's store (larger hole at the player's right side). One sows only once per turn. Only if the last seed falls in the larger hole, the player gets another turn. When one player has no seeds in any of their holes, the game ends. The player with the most seeds in her store wins.")
+        (version "1.0.0")
+        (classification "board/sow/two rows")
+        (credit "Alain Busser")
+        (date "21-05-2024")
+        }
+    )
+    
+    (graphics {
+        (board Style Mancala)
+    })
+    
+    (ai 
+        "Kalah_ai"
+    )
+    
+)
+

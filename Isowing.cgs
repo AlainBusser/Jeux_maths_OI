@@ -1,0 +1,43 @@
+/*
+ * Isowing.cgs
+ *
+ * Impartial Sowing is a combinatorial game created by J.H.Conway
+ * in the 1990s to show an example of so-called mancala
+ * (or sowing) game which leads to computable values.
+ * Two players are facing, a board having the shape of a
+ * strip between them. Each player in turn chooses a
+ * nonempy cell, takes all the seeds contained in this
+ * cell and sows them, one by one, in the following or preceding
+ * cells.
+ * If the last seed falls into an empty cell (or out of
+ * the board), the player looses.
+ */
+
+singleton class Isowing extends Ruleset
+
+  class Position(strip) extends Game
+
+    override def Options(player as Player) begin
+
+
+      var int := { true => 1, false => 0 };
+      for j from -1 to 1 by 2
+      for n from 1 to strip.Length
+
+        where strip[n] > 0
+                and n+j*strip[n] > 0
+                and n+j*strip[n] <= strip.Length
+                and strip[n+j*strip[n]] > 0
+
+
+        yield Position([(strip[i]+int[j>0]*int[i>n and i<n+strip[n]+1]+int[j<0]*int[i<n and i>n-strip[n]-1])*(1-int[i==n]) for i from 1 to strip.Length])
+
+      end
+
+    end
+
+  end
+
+  def Eval(strip) := Position(strip);
+
+end

@@ -325,11 +325,15 @@ s'arrête.</p>
     <li>si elle tombe dans une case vide de la rangée extérieure, 
         le tour de jeu s'arrête&nbsp;: c'est au tour de l'adversaire 
     de jouer.</li>
-    <li>si elle tombe dans une case non vide de la rangée extérieure, 
+    <li>Si elle tombe dans une case vide de la rangée intérieure 
+        mais que la colonne d'en face est vide, le tour de jeu 
+        s'arrête&nbsp;: c'est au tour de l'adversaire de jouer.
+    </li>
+    <li>Si elle tombe dans une case non vide de la rangée extérieure, 
         on refait un semis élémentaire, à partir de cette case, 
         dans le même sens que précédemment.
     </li>
-    <li>si elle tombe dans une case (vide ou pas) de la rangée 
+    <li>Si elle tombe dans une case (non vide ou permettant une capture) de la rangée 
         intérieure, on ramasse toutes les graines de la colonne 
         d'en face, on les joint à celles de la case où est tombée 
         la dernière graine du semis élémentaire, et on refait un 
@@ -384,7 +388,11 @@ s'arrête.</p>
     moins aisée...
 </p>
 
-
+<p>Ce jeu de semailles présente le double avantage de combiner 
+    le suspense du katro (on voit parfois des retournements de 
+    situation spectaculaires) et la rapidité du katro gorobaka. 
+    D'ailleurs n'est-il pas populaire auprès des enfants&nbsp;?
+</p>
 
 
 </body></html>

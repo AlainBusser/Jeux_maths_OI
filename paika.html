@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="sowing.css">
+    <title>paika</title>
+</head>    
+
+
+<body>
+
+<h1>Katra paika</h1>
+
+
+<h2>Histoire de ce jeu</h2>
+
+<p>Tout à la fin du XX<sup>e</sup> siècle, <a href="https://www.openstreetmap.org/#map=15/-21.31011/47.64771">près d'Ifanadiana</a> 
+en pays Tanala, Alex de Voogt a observé un jeu qui possède des points communs avec</p>
+
+<ul>
+    <li>le <a href="katro.html">katro</a> des hauts plateaux, par exemple le plateau et sa 
+    position initiale&nbsp;:
+
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+
+
+
+</li>
+<li>le mécanisme de capture et semis du <a href="fifanga.html">fifanga</a> observé par Flacourt 
+au XVII<sup>e</sup> siècle.</li>
+</ul>
+
+<p>Ce jeu semble donc issu d'un croisement entre ses deux ancêtres, peut-être parce que la zone 
+    Tanala se trouve à l'intersection de deux zones de diffusion. On connaît d'ailleurs l'inventivité 
+    des Tanala de l'Ikongo, avec leur <a href="samantsy.html">version particulière du jeu d'échecs</a>. 
+    L'interlocutrice d'Alex de Voogt a appris ce jeu dans son enfance et y jouait elle-même 
+    avec ses enfants&nbsp;: le katra paika est un jeu adapté aux enfants, de par la brièveté 
+    d'une partie.
+</p>
+
+<h2>Règle du jeu</h2>
+
+<p>Le jeu se joue sur un plateau comme celui-ci&nbsp;:</p>
+
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>mais dans la suite, on va illustrer la règle du jeu sur ce plateau simplifié&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Au début du jeu, il y a 2 graines par case, soit 48 (ou 32 dans la version simplifiée) 
+    graines en tout sur le plateau. Aucune graine n'est introduite ni retirée du jeu, ce 
+    qui fait qu'à tout instant, il y a 48 graines sur le plateau. Cela permet de vérifier 
+    qu'il n'y a pas de tricherie.
+</p>
+
+<p>Chaque joueur possède les graines qui sont dans ses rangées&nbsp;: celles qui sont les 
+    plus proches de lui. Les captures se font depuis la rangée intérieure, et on capture 
+    les graines qui sont dans la case d'en face (donc dans la rangée intérieure de 
+    l'adversaire). Les graines capturées sont semées à partir d'un des deux <i>tsibongy</i> 
+    (ce mot est cité par Flacourt, il n'est pas utilisé par les Tanala) qui sont les cases 
+    tout à gauche et tout à droite de la rangée intérieure. Par exemple les tsibongy de Sud 
+    sont coloriés en vert clair ci-dessous&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td style="background:lightgreen">2</td><td>2</td><td>2</td><td>2</td><td>2</td><td style="background:lightgreen">2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Le but du jeu est de vider la rangée intérieure de l'adversaire.</p>
+
+<p>Au début d'un tour de jeu, on choisit une case non vide (il y en a une, sinon on aurait 
+    déjà perdu) de la rangée intérieure, si possible contenant plus d'une graine, et telle que 
+    la case d'en face n'est pas vide. Plus précisément&nbsp;:
+</p>
+
+<ul>
+    <li>Si aucune case de la rangée intérieure ne contient plus d'une graine, on choisit 
+        une case contenant une graine.
+    </li>
+    <li>Si les cases faisant face à des cases de la rangée intérieure contenant au moins 
+        deux graines, sont vides, on ne fera que semer au cours du tour de jeu. Ce sera 
+    un tour de jeu <i>fotsiny</i> c'est-à-dire sans capture.</li>
+    <li>Si au moins une case permet une capture (c'est-à-dire qu'elle contient au moins 
+        2 graines et que la case d'en face n'est pas vide), on choisit une de ces cases 
+        en priorité.
+    </li>
+</ul>
+
+<p>Pour montrer à l'adversaire quelle case on a choisie, on en retire provisoirement une 
+    graine&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>1</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>puis on la remet en place, et on capture la ou les graines qui sont en face&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Ensuite, on choisit un sens de semis qui restera le même tout au long du tour de jeu. 
+    Par exemple, si on choisit le sens des aiguilles d'une montre, on sème les graines capturées 
+    à partir du tsibongy de gauche&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>et, si on a choisi le sens giratoire, on sème les graines capturées à partir du tsibongy 
+    de droite&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>L'idée est que s'il y a plus qu'une graine à semer, la seconde graine tombe dans la rangée intérieure.</p>
+
+<p>La suite du tour de jeu dépend de l'endroit où tombe la dernière graine d'un semis élémentaire&nbsp;:</p>
+
+<ul>
+    <li>Si cette graine tombe dans une case qui était jusque là vide, le tour de jeu s'arrête.</li>
+    <li>Si la dernière graine tombe dans une case ne permettant pas une capture (c'est-à-dire 
+        une case non vide de la rangée extérieure, ou une case non vide de la rangée intérieure 
+        faisant face à une case vide), alors on prend toutes les graines de cette case et on les 
+        sème dans le sens choisi au début du tour de jeu.
+    </li>
+    <li>Si la dernière graine tombe dans une case permettant une capture (c'est-à-dire une case 
+        non vide de la rangée intérieure faisant face à une case non vide), alors on capture 
+        les graines qui sont en face, et on les sème à partir d'un tsibongy de son choix (ce 
+        qui peut aboutir à un changement du sens de semis au cours d'un tour de jeu).
+    </li>
+</ul>
+
+<p>S'il n'est pas possible de faire une capture dès le début d'un tour de jeu, on joue <i>fotsiny</i> 
+c'est-à-dire que même si à un moment du tour de jeu, la dernière graine tombe dans une case non 
+vide de la rangée intérieure, faisant face à une case non vide, on ne capture pas&nbsp;: on prend 
+toutes les graines de cette case puis on les sème à partir de la case suivante, en respectant 
+le sens de semis choisi au début du tour de jeu.</p>
+
+<p>Un exemple&nbsp;: comme ci-dessus, Sud a capturé 2 graines et les a semées à partire de son 
+    tsibongy de gauche&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>La dernière graine semée est tombée dans une case qui n'était pas vide (il y a maintenant 
+    3 graines dans cette case&nbsp;; c'est la voisine du tsibongy de gauche), ce qui permet à nouveau 
+    une capture&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Sud peut semer les graines capturées, ou bien depuis le tsibongy de droite (ce qui lui 
+    permettrait une nouvelle capture), ou bien depuis le tsibongy de gauche&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>4</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Comme il n'est plus possible (pour l'instant) de capturer depuis cette case, Sud doit 
+    semer les 4 graines, vers la droite puisqu'en choisissant de commencer par le tsibongy 
+    de gauche, il a choisi le sens des aiguilles d'une montre&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td></td><td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombé dans le tsibongy de droite ce qui permet une capture&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td><td>2</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td></td><td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>En semant les 2 graines capturées depuis le tsibongy de droite, Sud peut encore effectuer une capture, mais 
+    en les semant depuis le tsibongy de gauche, il peut terminer son tour de jeu&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td><td>2</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>5</td><td>1</td><td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>En effet la dernière graine est tombée dans une case qui était jusqu'alors vide.</p>
+
+<h2>Exemple de partie</h2>
+
+<p>Sud commence, sur ce plateau&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Sud choisit d'attaquer depuis cette case, dans le sens giratoire (donc depuis de tsibongy 
+    de droite)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td style="background:lightgreen">2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Les deux graines capturées et semées permettent une nouvelle capture, la seconde étant tombée 
+    dans une case non vide faisant face à une case non vide&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Sud capture 2 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>puis les sème, à partir du tsibongy de gauche (du coup le sens de semis passe au sens des 
+    aiguilles d'une montre)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>La dernière des 2 graines est tombée dans une case non vide mais il n'est pas possible 
+    d'effectuer une capture (il n'y a plus rien à capturer en face), donc Sud va juste 
+    semer (toujours dans le sens des aiguilles d'une montre) les 3 graines&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td></td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>3</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide de la rangée extérieure, et Sud sème 
+    les 3 graines de cette case, toujours dans le sens des aiguilles d'une montre&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td></td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td></td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide de la rangée extérieure, et Sud sème 
+    les 3 graines de cette case, toujours dans le sens des aiguilles d'une montre&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>1</td><td>5</td><td>4</td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td>3</td><td></td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide (elle contient maintenant 5 graines) 
+    de la rangée intérieure, mais il n'y a rien à capturer en face, donc Sud sème les 5 
+    graines, toujours dans le sens des aiguilles d'une montre&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>1</td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>La dernière des 5 graines est tombée dans une case (en bas à gauche) qui était jusqu'alors 
+    vide (elle contient maintenant 1 graine), donc c'est à Nord de jouer. Nord choisit de mener 
+    son attaque depuis son tsibongy de droite (à gauche ci-dessous)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td style="background:lightgreen">2</td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>1</td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>ce qui lui permet de capturer 4 graines. Nord décide de les semer à partir du même 
+    tsibongy&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>3</td><td>1</td><td>1</td><td>3</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>La dernière des 4 graines est tombée dans une case (tout à droite) depuis laquelle Nord 
+    peut capturer 5 graines, et il décide de les semer à partir du même tsibongy (revenant ainsi 
+    au sens giratoire)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>4</td><td>2</td><td>2</td><td>4</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>La dernière des 5 graines est tombée dans une case (en haut à droite) non vide, mais de la 
+    rangée extérieure, donc Nord sème les 3 graines de cette case, toujours dans le sens giratoire&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td></td>
+    </tr>
+    <tr>
+        <td>4</td><td>2</td><td>2</td><td>4</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée (en haut à gauche) dans une case non vide de la rangée 
+    extérieure, donc Nord sème les 3 graines de cette case, toujours dans le sens giratoire&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td></td><td>3</td><td>3</td><td></td>
+    </tr>
+    <tr>
+        <td>5</td><td>3</td><td>3</td><td>4</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide de la rangée intérieure, mais faisant 
+    face à une case vide de Sud, et il n'est donc pas possible d'effectuer une capture. Nord doit 
+    donc semer (toujours dans le sens giratoire) les 3 graines de cette case&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td></td><td>3</td><td>4</td><td>1</td>
+    </tr>
+    <tr>
+        <td>5</td><td>3</td><td></td><td>5</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>puis, toujours dans le sens giratoire, les 4 graines de la case d'arrivée&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>4</td><td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>6</td><td>4</td><td></td><td>5</td>
+    </tr>
+    
+    <tr>
+        <td></td><td>1</td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>La dernière graine est tombée dans une case non vide (elle contient maintenant 4 graines) 
+    de la rangée intérieure, face à une case non vide (elle contient une graine). Nord 
+capture alors cette graine et la sème à partir du même tsibongy (restant donc dans le sens 
+giratoire). Semer une graine revient en fait à la déplacer dans le tsibongy&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>1</td><td>4</td><td></td><td>1</td>
+    </tr>
+    <tr>
+        <td>7</td><td>4</td><td></td><td>5</td>
+    </tr>
+    
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>1</td><td>4</td><td>4</td><td>1</td>
+    </tr>
+</table>
+
+<p>Mais en fait, Nord n'a plus besoin de continuer à semer, car même si Sud possède encore 
+    10 graines, aucune d'entre elles ne se trouve dans la rangée intérieure, et Nord, ayant déjà 
+    gagné, n'a plus besoin de continuer à jouer.
+</p>
+
+<p>Au final, chacun des joueurs n'a joué qu'un seul tour de jeu. On peut se demander si Sud a bien 
+    joué, et s'il n'était pas possible de gagner en un seul tour de jeu. De fait, si Sud avait 
+    commencé par attaquer depuis le tsibongy de gauche vers la droite (sens des aiguilles d'une 
+    montre)&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>pour ensuite semer depuis le rsibongy de droite (donc en changeant de sens) les 2 graines 
+    capturées&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>il lui aurait été possible de capturer encore 2 graines, et, en les semant depuis le 
+    tsibongy de droite&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>Sud aurait pu gagner&nbsp;; en effet il lui aurait fallu semer les 4 graines en gardant 
+    le sens giratoire&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>4</td><td></td><td>4</td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>puis (toujours dans le sens giratoire) les 3 graines&nbsp;:</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>4</td><td>4</td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>ce qui, comme la dernière graine tombait dans une case (à droite, contenant maintenant 5 graines) 
+    permettant une capture, lui aurait permis de capturer les 2 dernières graines de la rangée 
+    intérieure de Nord, gagnant ainsi la partie&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    
+    <tr>
+        <td>5</td><td>5</td><td></td><td>5</td>
+    </tr>
+    <tr>
+        <td>3</td><td></td><td>3</td><td>3</td>
+    </tr>
+</table>
+
+<p>Dans ce cas, Nord aurait perdu avant même d'avoir pu jouer&nbsp;!</p>
+
+
+<p>Ce jeu (surtout la version à 6 colonnes) permet (comme au <a href="katro.html">katro</a> 
+ou au <a href="mrahawatso.html">m'raha wa n'tso</a>) de belles surprises avec des renversements 
+impressionnants de situation, et s'il y a une stratégie gagnante, elle est difficile à trouver. 
+Il est même difficile de deviner qui a une stratégie gagnante, en raison du fait qu'il y a 
+beaucoup de décisions à prendre au cours d'un tour de jeu. Une partie dure moins de 10 minutes, 
+ce qui contribue grandement à l'intérêt de ce jeu.</p>
+
+</body></html>

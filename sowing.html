@@ -10,7 +10,7 @@
 
 <body>
 
-<h1>Version qui perd gagne de Sowing</h1>
+<h1>Fafy</h1>
 
 <h2>Histoire de ce jeu</h2>
 
@@ -25,20 +25,16 @@
 <p>Lors du même séminaire, Conway a inventé une version bilatérale de Sowing, 
     qui a moins de succès, de par une complexité accrue peut-être.
 </p>
-<p>En 2024, un enfant réunionnais (alors en Grande Section) a eu l'idée 
-    d'inventer un nouveau jeu de semailles en modifiant les phrases de la 
-    règle du jeu. Par exemple la phrase commençant par <em>Lorsque la dernière 
-        graine du semis tombe dans une case qui était vide jusqu'alors ...
-    </em> se termine
+<p>En 2024, un enfant réunionnais (alors en Grande Section) a mal compris la règle 
+    du jeu Sowing&nbsp;: au lieu de 
+    <em>la dernière graine du semis doit tomber dans une case non vide</em> 
+    il a compris 
+    <em>toutes les graines du semis doivent tomber dans des cases non vides</em>
 </p>
-<ul>
-    <li>dans <a href="katro.html">katro</a>, par <em>le tour de jeu s'arrête</em></li>
-    <li>dans Sowing, par <em>on a perdu le jeu</em>.</li>
-</ul>
-<p>Une modification simple est de remplacer dans le but du jeu, le mot 
-    <em>gagnant</em> par le mot <em>perdant</em>. C'est ainsi qu'a été créée 
-    par un réunionnais de 6 ans, la version <em>qui perd gagne</em> de Sowing, 
-    en 2024&nbsp;!
+
+<p>Il s'avère qu'avec cette règle modifiée, le jeu tend à durer moins longtemps 
+    que la version de Conway. Le nom <i>fafy</i> est une traduction de 
+    <i>sowing</i> en malgache.
 </p>
 
 <h2>Sowing</h2>
@@ -235,8 +231,102 @@
     <li>à <a href="sownim16.html">16 cases</a></li>
 </ul>
 
+<h2>Fafy</h2>
+
+<p>Le jeu se joue sur un plateau d'une rangée comme celui-ci&nbsp;:</p>
+
+<table><tr>
+    <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+<p>Chaque joueur à son tour choisit une case non vide, met dans sa main toutes les graines 
+    qu'elle contient&nbsp;:
+</p>
+
+<table><tr>
+    <td>2</td><td>2</td><td></td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+
+<p>puis sème ces graines, une par une, vers la droite, de telle manière que chacune des cases 
+    parcourues contienne déjà au moins une graine avant de recevoir une graine de la main&nbsp;:
+</p>
+
+<table><tr>
+    <td>2</td><td>2</td><td></td><td>3</td><td>3</td><td>2</td><td>2</td><td>2</td>
+</tr></table>
+
+<p>Le premier qui ne peut plus jouer en respectant cette règle, a <strong>perdu le jeu</strong>.</p>
+
+<p>Nord sème vers sa droite, donc du point de vue de Sud, il sème vers la gauche (car la droite de 
+    Nord est la gauche de Sud). Si par exemple Nord choisit cette case&nbsp;:
+</p>
+
+<table><tr>
+    <td>2</td><td>2</td><td></td><td>3</td><td>3</td><td></td><td>2</td><td>2</td>
+</tr></table>
+
+<p>alors on obtient ceci&nbsp;</p>
+
+<table><tr>
+    <td>2</td><td>2</td><td></td><td>4</td><td>4</td><td></td><td>2</td><td>2</td>
+</tr></table>
+
+<p>Normalement c'est à Sud de jouer, mais</p>
+
+<ol>
+    <li>Il ne peut pas semer les 2 graines de la case tout à gauche&nbsp;: la deuxième graine 
+        tomberait dans une case actuellement vide.
+    </li>
+    <li>Il ne peut pas semer les 2 graines de la deuxième case&nbsp;: la première graine 
+        tomberait dans une case actuellement vide.
+    </li>
+    <li>Il ne peut pas semer depuis la troisième case&nbsp;: celle-ci est vide.
+    </li>
+    <li>Il ne peut pas semer les 4 graines de la quatrième case&nbsp;: la deuxième graine 
+        tomberait dans une case actuellement vide.
+    </li>
+    <li>Il ne peut pas semer les 4 graines de la cinquième case&nbsp;: la première graine 
+        tomberait dans une case actuellement vide.
+    </li>
+    <li>Il ne peut pas semer depuis la sixième case&nbsp;: celle-ci est vide.
+    </li>
+    <li>Il ne peut pas semer les 2 graines de la septième case&nbsp;: le semis sortirait 
+        du plateau.
+    </li>
+    <li>Il ne peut pas semer les 2 graines de la case tout à droite&nbsp;: le semis 
+        sortirait du plateau.
+    </li>
+</ol>
+
+<p>Comme Sud ne peut rien semer alors que c'est à son tour de semer, Sud a perdu ce jeu.</p>
 
 
+<p>On peut s'entraîner en ligne avec ces outils&nbsp;:</p>
+
+<ul>
+    <li>avec <a href="fafy4.html">4 cases</a></li>
+    <li>avec <a href="fafy5.html">5 cases</a></li>
+    <li>avec <a href="fafy6.html">6 cases</a></li>
+    <li>avec <a href="fafy7.html">7 cases</a></li>
+    <li>avec <a href="fafy8.html">8 cases</a></li>
+    <li>avec <a href="fafy9.html">9 cases</a></li>
+    <li>avec <a href="fafy10.html">10 cases</a></li>
+</ul>
+
+<p>On peut aussi jouer à une version impartiale de fafy, où les deux joueurs peuvent semer 
+    vers la gauche ou vers la droite.
+</p>
+
+<p>On peut s'entraîner en ligne avec ces outils&nbsp;:</p>
+
+<ul>
+    <li>le <a href="ifafy4.html">fafy impartial à 4 cases</a></li>
+    <li>le <a href="ifafy5.html">fafy impartial à 5 cases</a></li>
+    <li>le <a href="ifafy6.html">fafy impartial à 6 cases</a></li>
+    <li>le <a href="ifafy7.html">fafy impartial à 7 cases</a></li>
+    <li>le <a href="ifafy8.html">fafy impartial à 8 cases</a></li>
+    <li>le <a href="ifafy9.html">fafy impartial à 9 cases</a></li>
+    <li>le <a href="ifafy10.html">fafy impartial à 10 cases</a></li>
+</ul>
 
 
 

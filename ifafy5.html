@@ -1,0 +1,97 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+table {
+	border-radius: 8px;
+	border: 1px solid black;
+	background-color: lightyellow;
+}	
+table td {
+	border-radius: 8px;
+	border: 1px solid brown;
+	width: 2em;
+	minimum-width: 2em;
+	height: 2em;
+	minimum-height: 2em;
+	text-align: center;
+}
+.rouge {
+	background-color: pink;
+}
+.vert {
+	background-color: lightgreen;
+}
+
+	</style>
+</head>
+<body>
+<p>Sens de semaille&nbsp;:</p>
+<form name="defsens">
+<ul>
+<li>→<input type="radio" value="1" name="sens" onChange="diriger()"></li>
+<li>←<input type="radio" value="-1" name="sens" onChange="diriger()"></li>
+</ul></form>
+<p>Nord </p>
+<table>
+<tr>
+<td id="t0" onclick="jouer(0)" class="vert">2</td>
+<td id="t1" onclick="jouer(1)" class="vert">2</td>
+<td id="t2" onclick="jouer(2)" class="vert">2</td>
+<td id="t3" onclick="jouer(3)" class="vert">2</td>
+<td id="t4" onclick="jouer(4)" class="vert">2</td>
+</tr>
+</table>
+<p>Sud </p>
+<h2>C'est à <code id="tourjeu">Sud</code> de jouer</h2>
+
+<script>
+const N = 5
+const nom = []
+nom[-1] = "Nord"
+nom[1] = "Sud"
+document.forms[0].elements["sens"].value = "0"
+let joueur = 1
+let j = 1
+const di = nom => document.getElementById(nom)
+const nbgraines = i => parseInt(di("t"+i).innerHTML)
+const jouable = function(i) {
+        if (nbgraines(i)==0) return false
+        if (i+j*nbgraines(i)<0) return false
+        if (i+j*nbgraines(i)>=N) return false
+        for (let k=1; k<=nbgraines(i); k += 1) {
+            if (nbgraines(i+j*k)==0) return false
+        }
+        return true
+    }
+let diriger = function(){
+	j = parseInt(document.forms[0].elements["sens"].value)
+	colorier()
+}
+const colorier = function() {
+	for (i=0; i<N; i++) di("t"+i).className = "rouge"
+	for (i=0; i<N; i++) {
+		if (jouable(i)) di("t"+i).className = "vert"
+	}
+}
+const jouer = function(i) {
+	if (jouable(i)) {
+		for (n=nbgraines(i),k=i+j; n>0; n--,k+=j) {
+			di("t"+k).innerHTML = nbgraines(k)+1
+		} 
+		di("t"+i).innerHTML = 0
+		joueur = -joueur
+		di("tourjeu").innerHTML = nom[joueur]
+		colorier()
+	}
+}
+document.defsens.sens[0].checked=true
+colorier()
+</script>
+
+
+
+
+
+</body>
+</html>

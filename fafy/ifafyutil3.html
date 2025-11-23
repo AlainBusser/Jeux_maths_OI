@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>fafy impartial</title>
+    <style>
+table {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+    width: 3em;
+    height: 3em;
+    border-radius: 25%;
+    text-align: right;
+} 
+input {
+    width: 2em;
+    border: none;
+}       
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input type="number" id="c0" min="0" max="3" value="0" onChange="mesure()"></td>
+        <td><input type="number" id="c1" min="0" max="3" value="0" onChange="mesure()"></td>
+        <td><input type="number" id="c2" min="0" max="3" value="0" onChange="mesure()"></td>
+    </tr>
+</table>
+<h3>Il y a en tout <code id="total">0</code> graines.</h3> 
+<h4>L'entropie du plateau est <code id="entropie">0</code> bits.</h4>
+<h3>Le nombre de graines semables au cours du jeu est dans l'ensemble { <code id="semables"></code> }.</h3>
+<h3>Le nombre de Grundy de ce jeu est <code id="grundy">0</code>.</h3>
+<h4>Le graphe du jeu possède <code id="nsommets">0</code> sommets.</h4>
+
+<script>
+const N = 3
+let board = new Array(N)
+let ensemble = new Set()
+const di = (nom) => document.getElementById(nom)
+const xln = function(x) {
+    if (x==0) return 0
+    else return x * Math.log2(x)
+}
+const mex = function(ens) {
+    let m=0
+    for (let i = 0; i <= ens.size; i+= 1) {
+        if (!ens.has(i)) return i        
+    }
+}
+const jouable = function(j,i,p) {
+        if (p[i]==0) return false
+        if (i+j*p[i]<0) return false
+        if (i+j*p[i]>=p.length) return false
+        for (let k=1; k<=p[i]; k += 1) {
+            if (p[i+j*k]==0) return false
+        }
+        return true
+    }
+const semer = function(j,i,p) {
+    if (jouable(j,i,p)) {
+        q = [...p]
+        graines = q[i]
+        ensemble.add(graines)
+        q[i] = 0
+        while (graines>0) {
+            i += j
+            graines -= 1
+            q[i] += 1
+        }
+        return q
+    }
+}
+const p2s = function(p) {
+    let s = "|"
+    for (let x of p) s += x + "|"
+    return s
+}
+const s2p = function(s) {
+    p = []
+    for (let c of s) {
+        if (c != "|") p.push(parseInt(c))
+    }
+    return p
+}
+const enfants = function(sommet) {
+    let parent = s2p(sommet)
+    let voisins = new Array()
+    for (let j of [-1,1]) {
+        for (let i=0; i<parent.length; i += 1) {
+            if (jouable(j,i,parent)) voisins.push(p2s(semer(j,i,parent)))
+        }
+    }
+    return voisins
+}
+const graphe = function(p) {
+    let m = new Map()
+    m.set(p, enfants(p))
+    let fini = false
+    while (!fini) {
+        g = new Map(m)
+        for (let k of m.keys()) {
+            for (let y of m.get(k)) {
+                if (!m.has(y)) g.set(y,enfants(y)) 
+            } 
+        }
+        fini = (m.size===g.size)
+        m = new Map(g)
+    }
+    return m
+}
+const grundy = function(graphe) {
+    let gr = new Map()
+    for (let k of graphe.keys()) gr.set(k,-1)
+    let s = new Set()
+    let fini = false
+    while (!fini) {
+        for (let k of graphe.keys()) {
+            let ens = new Set()
+            for (let v of graphe.get(k)) {
+                ens.add(gr.get(v))
+            }
+            gr.set(k,mex(ens))
+        }
+        fini = ((new Set(gr.values())).size===s.size)
+        s = new Set(gr.values())
+    }
+    return gr
+} 
+
+const mesure = function () {
+    let ngraines = 0
+    let S = 0
+    ensemble = new Set()
+    for (let i=0; i<N; i += 1) {
+        board[i] = parseInt(di("c"+i).value)
+        ngraines += board[i]
+    }
+    di("total").innerHTML = ngraines
+    for (let g of board) {
+        if (ngraines > 0) S -= xln(g/ngraines)
+    }
+    di("entropie").innerHTML = S.toLocaleString()
+    di("nsommets").innerHTML = graphe(p2s(board)).size
+    di("semables").innerHTML = [...ensemble]
+    di("grundy").innerHTML = grundy(graphe(p2s(board))).get(p2s(board))
+}
+</script>
+
+
+
+</body></html>

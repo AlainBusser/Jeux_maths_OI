@@ -1,27 +1,27 @@
-<!doctype html>
-<html>
-<head>
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<style>
 table {
-	border-radius: 8px;
-	border: 1px solid black;
-	background-color: lightyellow;
-}	
+    border-radius: 32px;
+    background: rgb(160,96,64);
+    box-shadow: 8px 5px 13px gray;
+}
 table td {
-	border-radius: 8px;
-	border: 1px solid brown;
-	width: 2em;
-	minimum-width: 2em;
-	height: 2em;
-	minimum-height: 2em;
-	text-align: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    font-size: 48px;
+    text-align: center;
+    text-shadow: 4px 2px 6px black;
+    border: 4px solid rgb(160,96,64);
 }
 .rouge {
-	background-color: pink;
+    background: radial-gradient(pink 0, red 75%, black 100%);
 }
 .vert {
-	background-color: lightgreen;
+    background: radial-gradient(lightgreen 0, green, black 100%);
 }
 
 	</style>
@@ -29,23 +29,25 @@ table td {
 <body>
 <p>Nord ←</p>
 <table>
-<tr>
-<td id="t0" onclick="jouer(0)" class="vert">1</td>
-<td id="t1" onclick="jouer(1)" class="vert">1</td>
-<td id="t2" onclick="jouer(2)" class="vert">1</td>
-<td id="t3" onclick="jouer(3)" class="vert">1</td>
-<td id="t4" onclick="jouer(4)" class="vert">1</td>
-<td id="t5" onclick="jouer(5)" class="vert">1</td>
-<td id="t6" onclick="jouer(6)" class="vert">1</td>
-<td id="t7" onclick="jouer(7)" class="vert">1</td>
+<tbody><tr>
+<td id="t0" onclick="jouer(0)" class="vert">⠂</td>
+<td id="t1" onclick="jouer(1)" class="vert">⠂</td>
+<td id="t2" onclick="jouer(2)" class="vert">⠂</td>
+<td id="t3" onclick="jouer(3)" class="vert">⠂</td>
+<td id="t4" onclick="jouer(4)" class="vert">⠂</td>
+<td id="t5" onclick="jouer(5)" class="vert">⠂</td>
+<td id="t6" onclick="jouer(6)" class="rouge">⠂</td>
+<td id="t7" onclick="jouer(7)" class="rouge">⠂</td>
 </tr>
-</table>
+</tbody></table>
 <p>Sud →</p>
 <h2>C'est à <code id="tourjeu">Sud</code> de jouer</h2>
-<h3>entropie  <progress id="visuS" max="200" value="200"></progress> <code id="entropie"></code> </h3>
+<h3>entropie  <progress id="visuS" max="300" value="300"></progress> <code id="entropie">2</code> </h3>
 
 <script>
 const N = 8
+const dessin = ["⠀","⠂","⠔","⠕","⠶","⠷","⠿"]
+const nombre = {"⠀":0, "⠂":1, "⠔":2, "⠕":3, "⠶":4, "⠷":5, "⠿":6 }
 const nom = {"-1": "Nord","1": "Sud" }
 let joueur = 1
 const xlogx = function(x) {
@@ -55,13 +57,13 @@ const xlogx = function(x) {
 const entropy = function() {
 	let S = 0
 	for (let i=0;i<N;i++) {
-		S -= xlogx(parseFloat(di("t"+i).innerHTML)/(2*N))
+		S -= xlogx(parseFloat(nombre[di("t"+i).innerHTML])/N)
 	}
 	di("entropie").innerHTML = S.toLocaleString()
 	di("visuS").value = Math.floor(100*S)
 }
 const di = nom => document.getElementById(nom)
-const nbgraines = i => parseInt(di("t"+i).innerHTML)
+const nbgraines = i => parseInt(nombre[di("t"+i).innerHTML])
 const jouable = function(j,i) {
         if (nbgraines(i)==0) return false
         if (i+j*nbgraines(i)<0) return false
@@ -81,9 +83,9 @@ const colorier = function() {
 const jouer = function(i) {
 	if (jouable(joueur,i)) {
 		for (n=nbgraines(i),k=i+joueur; n>0; n--,k+=joueur) {
-			di("t"+k).innerHTML = nbgraines(k)+1
+			di("t"+k).innerHTML = dessin[nbgraines(k)+1]
 		} 
-		di("t"+i).innerHTML = 0
+		di("t"+i).innerHTML = dessin[0]
 		joueur = -joueur
 		di("tourjeu").innerHTML = nom[joueur]
 		colorier()
@@ -97,5 +99,6 @@ colorier()
 
 
 
-</body>
-</html>
+
+
+</body></html>

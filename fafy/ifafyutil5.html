@@ -42,7 +42,7 @@ let board = new Array(N)
 let ensemble = new Set()
 const di = (nom) => document.getElementById(nom)
 const xln = function(x) {
-    if (x==0) return 0
+    if (x===0) return 0
     else return x * Math.log2(x)
 }
 const mex = function(ens) {
@@ -88,10 +88,10 @@ const s2p = function(s) {
 }
 const enfants = function(sommet) {
     let parent = s2p(sommet)
-    let voisins = new Array()
+    let voisins = new Set()
     for (let j of [-1,1]) {
         for (let i=0; i<parent.length; i += 1) {
-            if (jouable(j,i,parent)) voisins.push(p2s(semer(j,i,parent)))
+            if (jouable(j,i,parent)) voisins.add(p2s(semer(j,i,parent)))
         }
     }
     return voisins
@@ -112,24 +112,16 @@ const graphe = function(p) {
     }
     return m
 }
-const grundy = function(graphe) {
-    let gr = new Map()
-    for (let k of graphe.keys()) gr.set(k,-1)
-    let s = new Set()
-    let fini = false
-    while (!fini) {
-        for (let k of graphe.keys()) {
-            let ens = new Set()
-            for (let v of graphe.get(k)) {
-                ens.add(gr.get(v))
-            }
-            gr.set(k,mex(ens))
-        }
-        fini = ((new Set(gr.values())).size===s.size)
-        s = new Set(gr.values())
+const nimber = function(p) {
+    gr = new Map()
+    if (enfants(p).length===0) gr.set(p,0)
+    else {
+        let s = new Set()
+        for (let q of enfants(p)) s.add(gr.has(q) ? gr.get(q) : nimber(q))
+        gr.set(p,mex(s))
     }
-    return gr
-} 
+    return gr.get(p)
+}
 
 const mesure = function () {
     let ngraines = 0
@@ -146,7 +138,7 @@ const mesure = function () {
     di("entropie").innerHTML = S.toLocaleString()
     di("nsommets").innerHTML = graphe(p2s(board)).size
     di("semables").innerHTML = [...ensemble]
-    di("grundy").innerHTML = grundy(graphe(p2s(board))).get(p2s(board))
+    di("grundy").innerHTML = nimber(p2s(board))
 }
 </script>
 

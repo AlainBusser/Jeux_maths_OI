@@ -1,0 +1,32 @@
+/*
+ * Fafy.cgs
+ *
+ * Fafy is a variant of Sowing invented in 2024 by a child
+ * from Réunion who misunderstood the rule of Sowing:
+ * instead of "the last seed must fall into a nonempty cell",
+ * the rule is "every seed during the sowing must fall into
+ * a nonempty cell" (not just the last one).
+ *
+ * Like Sowing, Left sows from left to right,
+ * Right sows from right to left.
+ */
+singleton class Fafy extends Ruleset
+  class Position(strip) extends Game
+    override def Options(player as Player) begin
+      var dir := { Left => 1, Right => -1 };
+      var d := dir[player];
+      var int := { true => 1, false => 0 };
+      for n from 1 to strip.Length
+        where strip[n] > 0
+        // toutes les cases du semis doivent être dans le plateau
+        and n + d * strip[n] >= 1
+        and n + d * strip[n] <= strip.Length
+        // toutes les cases intermédiaires doivent être non vides
+        and (Min([strip[n + d * k] for k from 1 to strip[n]]) > 0)
+        yield Position([(strip[i]+int[d>0]*int[i>n and i<n+strip[n]+1]+int[d<0]*int[i<n and i>n-strip[n]-1])*(1-int[i==n]) for i from 1 to strip.Length])
+      end
+    end
+  end
+
+  def Eval(strip) := Position(strip);
+end

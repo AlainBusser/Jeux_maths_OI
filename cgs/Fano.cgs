@@ -1,0 +1,29 @@
+/*
+ * Fano.cgs
+ *
+ */
+
+singleton class Fano extends game.strip.StripRuleset
+
+  class Position(strip as Strip) extends StripGame
+
+    override def Options(player as Player) begin
+
+      var us := player.Ordinal;
+      var them := player.Opponent.Ordinal;
+
+      for n from 3 to strip.Length-2
+      for dir in [-1,1]
+      where strip[n] == us and strip[n+dir] == 0     //
+      yield Position(strip Updated { n => 0, n+dir => us, n+2*dir => 0 } )
+      end
+
+    end
+
+  end
+
+  override def CharMap := ".xo";
+
+  override def Icons := [Icon.Blank, Icon.BlackStone, Icon.WhiteStone];
+
+end

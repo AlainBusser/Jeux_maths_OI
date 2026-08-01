@@ -1,0 +1,88 @@
+/*
+ * AtomicWari.cgs
+ *
+ * Atomic Wari
+ *
+ * A move consists in choosing a cell containing at least two
+ * seeds, sowing them in the player's direction, then capturing
+ * backwards every cell containing 2 or 3 seeds.
+ *
+ * Capture stops as soon as a cell contains 0, 1 or at least 4
+ * seeds.
+ */
+
+singleton class AtomicWari extends Ruleset
+
+  class Position(strip) extends Game
+    /*
+     * Return the position obtained after capturing backwards.
+     *
+     * n is the last cell reached by sowing.
+     * step is the direction of the sowing player.
+     */
+    var int := { true => 1, false => 0 };
+    def Capture(board, n, step) begin
+      if (n < 1 or n > board.Length) then board
+      elseif {2,3}.Contains(board[n]) then
+        var newBoard :=
+          [
+            board[i]*(1-int[i==n])
+            for i from 1 to board.Length
+          ];
+        Capture(newBoard, n-step, step)
+      else
+        board
+      end
+    end
+
+
+    /*
+     * Play one sowing move.
+     */
+    def Move(board, start, step) begin
+
+      var seeds := board[start];
+
+      var result :=
+        [board[i]*(1-int[i==start]) for i from 1 to board.Length];
+
+
+      var last := start;
+
+      for k from 0 to seeds-1 do
+
+        last := start + k*step;
+
+        if (last >= 1 and last <= board.Length) then
+          result := [result[i] + int[i==last] for i from 1 to result.Length];
+        end
+
+      end
+
+      Capture(result, last, step);
+
+    end
+
+
+    override def Options(player as Player) begin
+
+      var direction := { Left => 1, Right => -1 };
+
+      for n from 1 to strip.Length
+
+        where strip[n] >= 2
+
+        yield Position(
+          Move(strip, n, direction[player])
+        )
+
+      end
+
+    end
+
+  end
+
+
+  def Eval(strip) := Position(strip);
+
+end

@@ -1,0 +1,33 @@
+singleton class Alquerkonane extends game.grid.GridRuleset
+  class Position(grid as Grid) extends GridGame
+    override def Options(player as Player) begin
+      var us   := player.Ordinal;
+      var them := player.Opponent.Ordinal;
+      var row  := if us == 1 then -1 else 1 end;
+      for coord in (grid FindAll us)
+      for direction in Coordinates.Compass
+      where
+        ((direction.Row == 0 or direction.Col == 0)
+          and grid.IsInBounds(coord + direction)
+          and grid.IsInBounds(coord + 2*direction)
+          and grid[coord + direction] == them
+          and grid[coord + 2*direction] == 0)
+        or
+        (direction.Row == row and direction.Col != 0
+          and grid.IsInBounds(coord + direction)
+          and grid[coord + direction] == 0)
+      yield
+        if direction.Row != 0 and direction.Col != 0 then
+          Position(grid Updated { coord => 0,
+                                  coord + direction => us })
+        else
+          Position(grid Updated { coord => 0,
+                                  coord + direction   => 0,
+                                  coord + 2*direction => us })
+        end
+      end
+    end
+  end
+  override def CharMap := ".xo";
+  override def Icons := [Icon.Blank, Icon.BlackStone, Icon.WhiteStone];
+end

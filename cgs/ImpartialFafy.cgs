@@ -1,0 +1,36 @@
+/*
+ * ImpartialFafy.cgs
+ *
+ */
+
+singleton class ImpartialFafy extends ImpartialGame
+
+  class Position(strip) extends Game
+
+    override def Options(player as Player) begin
+
+      var dir := { Left => 1, Right => -1 };
+      var d := dir[player];
+
+      var int := { true => 1, false => 0 };
+      for j from -1 to 1 by 2
+      for n from 1 to strip.Length
+
+        where strip[n] > 0
+                and n+j*strip[n] > 0
+                and n+j*strip[n] <= strip.Length
+                and strip[n+j*strip[n]] > 0
+                and (Min([strip[n + j * k] for k from 1 to strip[n]]) > 0)
+
+
+        yield Position([(strip[i]+int[j>0]*int[i>n and i<n+strip[n]+1]+int[j<0]*int[i<n and i>n-strip[n]-1])*(1-int[i==n]) for i from 1 to strip.Length])
+
+      end
+
+    end
+
+  end
+
+  def Eval(strip) := Position(strip);
+
+end

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="sowing.css">
+    <title>trwazo</title>
+</head>    
+
+
+<body>
+
+<h1>Trwazo</h1>
+
+<h2>Histoire de ce jeu</h2>
+
+<p>En 2026, à l'occasion d'un déménagement, a été découvert un bac à glaçons permettant de jouer à un jeu de semaille, mais ce bac à glaçons ne comporte que 
+    3 rangées, ce qui est inhabituel. La question s'est posée de savoir à quel genre de jeu de semaille on peut jouer sur seulement 3 rangées. 
+    Certes on a vu des plateaux de jeus de semailles à 3 rangées dans la corne de l'Afrique (<a href="https://ludii.games/details.php?keyword=Gabata%20(Adowa)">gabata</a> 
+    ou <a href="https://ludii.games/details.php?keyword=Selus">selus</a> etc.) et sur la statue du grand roi <i>Shamba Bolongongo</i>, mais la règle du jeu 
+    trwazo semble plus simple que ce que l'on sait ou devine de ces jeux.
+
+
+</p>
+
+<h2>Règle du jeu</h2>
+
+<p>Le jeu trwazo se joue sur un plateau de 3 rangées et au moins 3 colonnes (typiquement 6)&nbsp:
+</p>
+
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+</table>
+
+<p>et, de bas en haut&nbsp:</p>
+<ul>
+    <li>la rangée du bas appartient à Sud,</li>
+    <li>la rangée du milieu est commune aux deux joueurs,</li>
+    <li>la rangée du haut appartient à Nord.</li>
+</ul>
+
+<p>Au début de chaque tour de jeu, on choisit une case non vide de la rangée la plus proche de soi, et un sens de semaille (ici, la case presque tout à droite, et le sens trigonométrique), 
+    puis on distribue les graines de cette case dans les cases suivantes, en sautant la case de départ, et en respectant le sens choisi&nbsp:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>3</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td></td><td>3</td>
+    </tr>
+</table>
+
+<p>Si la dernière graine de ce semis élémentaire tombe dans une case vide, le tour de jeu est fini et c'est à l'adversaire de jouer. Sinon on resème, dans le 
+    sens choisi au début du tour de jeu, mais avant de resemer depuis la case où a fini le semis élémentaire précédent, et si cette case est dans la rangée 
+    neutre, on capture les graines qui se trouvent 
+    dans la même colonne mais dans la rangée de l'adversaire&nbsp;:
+</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>5</td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td></td><td>3</td>
+    </tr>
+</table>
+
+
+<p>puis on resème etc.</p>
+
+<table>
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td></td><td>3</td>
+    </tr>
+</table>
+
+<p>avec capture si possible,</p>
+
+<table>
+    <tr>
+        <td></td><td>2</td><td>2</td><td>2</td><td>2</td><td></td>
+    </tr>
+    <tr>
+        <td>5</td><td>3</td><td>3</td><td>3</td><td>3</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>2</td><td>2</td><td>2</td><td>2</td><td></td><td>3</td>
+    </tr>
+</table>
+
+<p>jusqu'à ce que la dernière graine du semis élémentaire tombe dans une case vide.</p>
+
+
+<table>
+    <tr>
+        <td></td><td>2</td><td>2</td><td>2</td><td>2</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>3</td><td>3</td><td>3</td><td>3</td><td></td>
+    </tr>
+    
+    <tr>
+        <td>3</td><td>3</td><td>3</td><td>3</td><td>1</td><td>3</td>
+    </tr>
+</table>
+
+<p>Si la dernière graine d'un semis élémentaire tombe dans une case non vide de la rangée personnelle, ou s'il n'y a pas de graine en face, on capture 
+    0 graine et on sème seulement les graines qui étaient dans cette case.
+</p>
+
+<h2>But du jeu</h2>
+
+<p>Chaque tour de jeu commence par le choix d'une case non vide de sa propre rangée. Donc si toute la rangée d'un joueur est vide, ce joueur est bloqué 
+    et le jeu s'arrête sur la victoire de son adversaire. Le but du jeu est donc de vider la rangée de l'adversaire.
+</p>
+
+
+
+</body></html>
